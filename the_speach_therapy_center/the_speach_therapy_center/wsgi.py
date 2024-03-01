@@ -1,5 +1,5 @@
 """
-WSGI config for the_speech_therapy_center project.
+WSGI config for the_speach_therapy_center project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'the_speech_therapy_center.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'the_speach_therapy_center.settings')
 
 application = get_wsgi_application()
