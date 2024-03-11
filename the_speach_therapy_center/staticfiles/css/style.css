@@ -1339,6 +1339,7 @@ section {
 
 @media (max-width: 1200px) {
   .faq .faq-list {
+    margin-top: 155px;
     padding: 0;
   }
 }
