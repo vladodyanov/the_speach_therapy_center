@@ -4,25 +4,25 @@ from django.contrib.auth import views as auth_views, login, logout
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
-# from the_speach_therapy_center.accounts.forms import SpeachCenterUserCreationForm
-# from the_speach_therapy_center.accounts.models import Profile
+from the_speach_therapy_center.accounts.forms import SpeachCenterUserCreationForm
+from the_speach_therapy_center.accounts.models import Profile
 
 
 class SignInUserView(auth_views.LoginView):
     template_name = 'accounts/signin_user.html'
     redirect_authenticated_user = True
+    success_url = reverse_lazy('getting_started')
 
 
 class SignUpUserView(views.CreateView):
-    pass
-    # template_name = 'accounts/signup_user.html'
-    # form_class = SpeachCenterUserCreationForm
-    # success_url = reverse_lazy('index')
-    #
-    # def form_valid(self, form):
-    #     result = super().form_valid(form)
-    #     login(self.request, form.instance)
-    #     return result
+    template_name = 'accounts/signup_user.html'
+    form_class = SpeachCenterUserCreationForm
+    success_url = reverse_lazy('getting_started')
+
+    def form_valid(self, form):
+        result = super().form_valid(form)
+        login(self.request, form.instance)
+        return result
 
 
 def signout_user(request):

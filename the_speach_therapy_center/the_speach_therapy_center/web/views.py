@@ -20,7 +20,3 @@ def gallery(request):
     context = {}
     return render(request, template_name='web/gallery.html', context=context)
 
-
-def getting_started(request):
-    context = {}
-    return render(request, template_name='web/getting_started.html', context=context)

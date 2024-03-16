@@ -10,6 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
+  margin-top: 75px;
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
@@ -559,6 +560,11 @@ section {
 }
 
 .section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title-registration {
   text-align: center;
   padding-bottom: 30px;
 }

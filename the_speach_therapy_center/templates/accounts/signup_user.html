@@ -5,5 +5,29 @@
 {% load filters %}
 
 {% block main_content %}
-    
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+        <div class="section-title-registration">
+          <h2>Welcome to The Speach Therapy Center</h2>
+          <p>Thank you for choosing our Speech Therapy services. Please fill out the form below to begin your journey towards improved communication and enhanced speech.</p>
+            
+            <form action="{% url 'signup user' %}" method="post">
+                <p>
+                    {{ form.email|placeholder:'Email:' }}
+                </p>
+               
+                <p>
+                    {{ form.password1|placeholder:'Password:' }}
+                </p>
+                <p>
+                    {{ form.password2|placeholder:'Confirm password:' }}
+                </p>
+
+                <button type="submit">Register</button>
+                
+                {% csrf_token %}
+            </form>
+             
+        </div>
+      </div>
 {% endblock %}
