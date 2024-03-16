@@ -66,26 +66,25 @@
         </h1>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-            <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a class="nav-link {% if request.path == '/' %}active{% endif %} scrollto" href="{% url 'index' %}">Home</a></li>
+            <li><a class="nav-link {% if request.path == '/about/' %}active{% endif %} scrollto" href="{% url 'about' %}">About</a></li>
+            <li><a class="nav-link {% if request.path == '/gallery/' %}active{% endif %} scrollto" href="{% url 'gallery' %}">Gallery</a></li>
             {% if request.user.is_authenticated %}
-                <li><a class="nav-link scrollto" href="{% url 'getting_started' %}">Getting started</a></li>
-                <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                      <li><a href="{% url 'pediatric' %}">Pediatric Speech Services</a></li>
-                      <li><a href="{% url 'adult' %}">Adult Speech Services</a></li>
-                      <li><a href="{% url 'occupational' %}">Occupational speech services</a></li>
-                    </ul>
+            <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Getting started</a></li>
+                <li class="dropdown">
+                    <a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'pediatric' %}" class="{% if request.path == '/services/pediatric/' %}active{% endif %}">Pediatric Speech Services</a></li>
+                            <li><a href="{% url 'adult' %}" class="{% if request.path == '/services/adult/' %}active{% endif %}">Adult Speech Services</a></li>
+                            <li><a href="{% url 'occupational' %}" class="{% if request.path == '/services/occupational/' %}active{% endif %}">Occupational Speech Services</a></li>
+                        </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="{% url 'getting_started' %}">User Diary</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'signout user' %}">Logout</a></li>
-                        
+            <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">User Diary</a></li>
+            <li><a class="nav-link" href="{% url 'signout user' %}">Logout</a></li>
             {% else %}
-                <li><a class="nav-link scrollto" href="{% url 'signup user' %}">Registration</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'signin user' %}">Login</a></li>
-                <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
-                        
+            <li><a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %} scrollto" href="{% url 'signup user' %}">Registration</a></li>
+            <li><a class="nav-link {% if request.path == '/accounts/signin/' %}active{% endif %} scrollto" href="{% url 'signin user' %}">Login</a></li>
+            <li><a class="nav-link {% if request.path == '/contact/' %}active{% endif %} scrollto" href="{% url 'contact' %}">Contact</a></li>
             {% endif %}
         
         </ul>
