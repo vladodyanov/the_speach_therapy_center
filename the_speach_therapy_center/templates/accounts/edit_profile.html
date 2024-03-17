@@ -3,5 +3,16 @@
 {% load static %}
 
 {% block main_content %}
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+        <div class="section-title-registration">
+          <form action="{% url 'edit profile' pk=object.pk %}" method="post">
+            {{ form.as_p}}
+              
+            <button class="edit-btn" type="submit">Edit</button>
+            {% csrf_token %}
+        </form>>
+        </div>
+      </div>
    
 {% endblock %}

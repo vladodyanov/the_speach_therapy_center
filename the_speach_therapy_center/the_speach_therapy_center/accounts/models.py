@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import models as auth_models
+from django.contrib.auth import models as auth_models, get_user_model
 from the_speach_therapy_center.accounts.managers import SpeachCenterUserManager
 
 from django.utils import timezone
@@ -30,7 +30,11 @@ class SpeachCenterUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixi
     objects = SpeachCenterUserManager()
 
 
+UserModel = get_user_model()
+
+
 class Profile(models.Model):
+
     MAX_FIRST_NAME_LENGTH = 30
     MAX_LAST_NAME_LENGTH = 30
 
@@ -57,7 +61,7 @@ class Profile(models.Model):
     )
 
     user = models.OneToOneField(
-        SpeachCenterUser,
+        UserModel,
         primary_key=True,
         on_delete=models.CASCADE,
     )

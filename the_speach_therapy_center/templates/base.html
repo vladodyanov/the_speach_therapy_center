@@ -80,7 +80,7 @@
                         </ul>
                 </li>
             <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">User Diary</a></li>
-            <li><a class="nav-link  scrollto" href="{% url 'details_profile' pk=request.user.pk %}">Profile</a></li>    
+            <li><a class="nav-link  scrollto" href="{% url 'details profile' pk=request.user.pk %}">Profile</a></li>
             <li><a class="nav-link" href="{% url 'signout user' %}">Logout</a></li>
             {% else %}
             <li><a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %} scrollto" href="{% url 'signup user' %}">Registration</a></li>

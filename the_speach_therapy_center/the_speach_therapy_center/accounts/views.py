@@ -32,25 +32,26 @@ def signout_user(request):
 
 
 class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
-    queryset = Profile.objects.all()
+    queryset = Profile.objects \
+        .prefetch_related('user') \
+        .all()
     template_name = "accounts/details_profile.html"
 
 
 class ProfileUpdateView(views.UpdateView):
-    pass
-    # queryset = Profile.objects.all()
-    # template_name = "accounts/edit_profile.html"
-    # fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth')
-    #
-    # def get_success_url(self):
-    #     return reverse('details profile', kwargs={'pk': self.object.pk})
-    #
-    # def get_form(self, form_class=None):
-    #     form = super().get_form(form_class=form_class)
-    #
-    #     form.fields['date_of_birth'].widget.attrs['type'] = 'date'
-    #
-    #     return form
+    queryset = Profile.objects.all()
+    template_name = "accounts/edit_profile.html"
+    fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth')
+
+    def get_success_url(self):
+        return reverse('details profile', kwargs={'pk': self.object.pk})
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+
+        form.fields['date_of_birth'].widget.attrs['type'] = 'date'
+
+        return form
 
 
 class ProfileDeleteView(views.DeleteView):

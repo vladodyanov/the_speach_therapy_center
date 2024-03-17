@@ -3,5 +3,22 @@
 {% load static %}
 
 {% block main_content %}
-    <p>AlaBala</p>
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+        <div class="section-title-registration">
+          <h2>Profile details:</h2>
+            {% if object.profile_picture %}
+                <img src="{{ object.profile_picture }}" class="main-profile-picture-height" alt="profile picture"/>
+            {% else %}
+                <img src="{% static 'img/person.png' %}" class="main-profile-picture-height" alt="profile picture"/>
+            {% endif %}
+            <p>First name: {{ object.first_name }}</p>
+            <p>Last name: {{ object.last_name }}</p>
+            <p>E-mail: {{ profile.user.email }}</p>
+            <p>Birthday: {{ object.date_of_birth }}</p>
+            <a href="{% url 'edit profile' pk=object.pk %}"> Edit profile</a>
+        </div>
+      </div>
+    
+    
 {% endblock %}
