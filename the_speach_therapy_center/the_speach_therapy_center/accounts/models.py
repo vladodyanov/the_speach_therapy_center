@@ -36,14 +36,14 @@ class Profile(models.Model):
 
     first_name = models.CharField(
         max_length=MAX_FIRST_NAME_LENGTH,
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
 
     last_name = models.CharField(
         max_length=MAX_LAST_NAME_LENGTH,
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
 
     date_of_birth = models.DateField(

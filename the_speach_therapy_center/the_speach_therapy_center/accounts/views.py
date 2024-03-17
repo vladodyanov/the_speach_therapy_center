@@ -6,6 +6,7 @@ from django.views import generic as views
 
 from the_speach_therapy_center.accounts.forms import SpeachCenterUserCreationForm
 from the_speach_therapy_center.accounts.models import Profile
+from the_speach_therapy_center.core.view_mixins import OwnerRequiredMixin
 
 
 class SignInUserView(auth_views.LoginView):
@@ -30,12 +31,9 @@ def signout_user(request):
     return redirect('index')
 
 
-class ProfileDetailsView(views.DetailView):
-    pass
-    # queryset = Profile.objects\
-    #     .prefetch_related('user') \
-    #     .all()
-    # template_name = "accounts/details_profile.html"
+class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
+    queryset = Profile.objects.all()
+    template_name = "accounts/details_profile.html"
 
 
 class ProfileUpdateView(views.UpdateView):
