@@ -1776,26 +1776,55 @@ section {
 /**
 * Profile Button *
 */
-.edit-delete-btn {
-  margin-left: 25px;
-  background: #1977cc;
-  color: #fff;
-  border-radius: 50px;
-  padding: 8px 25px;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
-  display: inline-block;
+.edit-delete {
+	display: flex;
+	flex-direction: column;
+    justify-content: space-evenly;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(156, 152, 152);
+	padding: 40px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	box-shadow: 1px 2px 3px #888888;
+	height:55vh;
 }
 
-.edit-delete-btn :hover {
-  background: #166ab5;
-  color: #fff;
+.edit-delete h2 {
+	text-align: center;
+	margin-top: -10px;
+	text-shadow: 1px 1px rgb(65, 63, 63);
 }
 
-@media (max-width: 768px) {
-  .edit-delete-btn {
-    margin: 0 15px 0 0;
-    padding: 6px 18px;
-  }
+.edit-delete label {
+	display: none;
+}
+
+.edit-delete input, select {
+	background-color: rgb(240, 230, 230);
+	border: 0.1px solid rgb(186, 184, 184);
+	border-radius: 3px;
+	height: 30px;
+	padding-left: 2px;
+	margin-top: 10px;
+}
+
+.edit-delete button {
+	color: white;
+	font-weight: bold;
+	font-size: 13px;
+	border: none;
+	width: 100%;
+	border-radius: 3px;
+	margin-top: 10px;
+	height: 30px;
+    box-shadow: 2px 3px #888888;
+    cursor: pointer;
+}
+
+.edit-delete textarea {
+	position: relative !important;
+}
+
+.edit-delete a {
+	color: white;
 }
