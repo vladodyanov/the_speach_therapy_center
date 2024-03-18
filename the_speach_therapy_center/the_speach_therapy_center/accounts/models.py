@@ -5,6 +5,8 @@ from the_speach_therapy_center.accounts.managers import SpeachCenterUserManager
 
 from django.utils import timezone
 
+# auth_models.AbstractUser
+
 
 class SpeachCenterUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     email = models.EmailField(
@@ -55,13 +57,14 @@ class Profile(models.Model):
         null=True
     )
 
-    profile_picture = models.URLField(
+    profile_picture = models.ImageField(
+        upload_to='profile_pictures/',
         blank=True,
         null=True
     )
 
     user = models.OneToOneField(
-        UserModel,
+        SpeachCenterUser,
         primary_key=True,
         on_delete=models.CASCADE,
     )
