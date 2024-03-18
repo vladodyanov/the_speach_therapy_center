@@ -3,5 +3,20 @@
 {% load static %}
 
 {% block main_content %}
-   
+    
+    
+    
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+        <div class="section-title-registration">
+          <h2>Are you sure you want to delete your profile?</h2>
+          
+        <form action ="{% url 'delete profile' pk=object.pk %}"  method="post">
+            
+        <input class="appointment-btn" type="submit" value="Yes">
+            {% csrf_token %}
+            
+        </form>
+        </div>
+      </div>
 {% endblock %}

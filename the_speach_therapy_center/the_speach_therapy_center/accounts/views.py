@@ -55,6 +55,11 @@ class ProfileUpdateView(views.UpdateView):
 
 
 class ProfileDeleteView(views.DeleteView):
-    pass
-    # queryset = Profile.objects.all()
-    # template_name = 'accounts/delete_profile.html'
+    queryset = Profile.objects.all()
+    template_name = 'accounts/delete_profile.html'
+
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
+        if request.user.is_authenticated:
+            logout(request)
+        return response

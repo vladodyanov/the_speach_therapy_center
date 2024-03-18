@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import models as auth_models, get_user_model
 from the_speach_therapy_center.accounts.managers import SpeachCenterUserManager
-
+from datetime import datetime
 from django.utils import timezone
 
 # auth_models.AbstractUser
@@ -56,6 +56,13 @@ class Profile(models.Model):
         blank=True,
         null=True
     )
+
+    @property
+    def age(self):
+        today = datetime.now().date()
+        age = today.year - self.date_of_birth.year - (
+                    (today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return age
 
     profile_picture = models.ImageField(
         upload_to='profile_pictures/',

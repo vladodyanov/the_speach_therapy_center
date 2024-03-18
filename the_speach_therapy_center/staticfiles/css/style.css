@@ -1772,3 +1772,30 @@ section {
 .main-profile-picture-height {
     height: 200px;
 }
+
+/**
+* Profile Button *
+*/
+.edit-delete-btn {
+  margin-left: 25px;
+  background: #1977cc;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.edit-delete-btn :hover {
+  background: #166ab5;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .edit-delete-btn {
+    margin: 0 15px 0 0;
+    padding: 6px 18px;
+  }
+}

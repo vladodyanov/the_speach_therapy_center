@@ -16,7 +16,12 @@
             <p>Last name: {{ object.last_name }}</p>
             <p>E-mail: {{ profile.user.email }}</p>
             <p>Birthday: {{ object.date_of_birth }}</p>
-            <a href="{% url 'edit profile' pk=object.pk %}"> Edit profile</a>
+            {% if object.date_of_birth %}
+                <p>Age: {{ object.age }}</p>
+            {% endif %}
+            <a href="{% url 'edit profile' pk=object.pk %}" class="edit-delete-btn"> Edit profile</a>
+        
+            <a href="{% url 'delete profile' pk=object.pk %}" class="edit-delete-btn"> Delete profile</a>
         </div>
       </div>
     
