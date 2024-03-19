@@ -7,13 +7,15 @@
       <div class="container">
         <div class="section-title-registration">
             <h2> Edit Profile</h2>
-          <form action="{% url 'edit profile' pk=object.pk %}" method="post">
-            {{ form.as_p}}
-              
+                <form action="{% url 'edit profile' pk=object.pk %}" method="post" enctype="multipart/form-data" >
+                    {{ form.as_p}}
+                    
             <button class="appointment-btn" type="submit">Edit</button>
             {% csrf_token %}
+                    
         </form>
         </div>
       </div>
    
+    
 {% endblock %}

@@ -11,20 +11,20 @@
             <p>Please log in to your account to begin your journey towards improved communication and enhanced speech.</p>
             
             <form action="{% url 'signin user' %}" method="post">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-4 form-group">
-                <p>
+                <div class="php-email-form">
+                    <p>
                     {{ form.username|placeholder:'Email:' }}
-                </p>
-                <p>
-                    {{ form.password|placeholder:'Password:' }}
-                </p>
-                <button type="submit">Log in</button>
-                    </div>
+                    </p>
+                    <p>
+                        {{ form.password|placeholder:'Password:' }}
+                    </p>
                 </div>
+                
+                <button type="submit" class="appointment-btn">Log in</button>
+                  
                 {% csrf_token %}
             </form>
-             <p>Don't have an account? <a href="{% url 'signup user' %}">Register</a></p>
+             <p>Don't have an account? <a href="{% url 'signup user' %}" >Register</a></p>
         </div>
       </div>
         

@@ -39,6 +39,13 @@ class Profile(models.Model):
 
     MAX_FIRST_NAME_LENGTH = 30
     MAX_LAST_NAME_LENGTH = 30
+    MAX_PHONE_NUMBER_LENGTH = 15
+    MAX_TEXT_LENGTH = 500
+
+    TYPE_CHOICES = [
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ]
 
     first_name = models.CharField(
         max_length=MAX_FIRST_NAME_LENGTH,
@@ -57,15 +64,31 @@ class Profile(models.Model):
         null=True
     )
 
-    @property
-    def age(self):
-        today = datetime.now().date()
-        age = today.year - self.date_of_birth.year - (
-                    (today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
-        return age
+    phone_number = models.CharField(
+        max_length=MAX_PHONE_NUMBER_LENGTH,
+        blank=True,
+        null=True)
 
     profile_picture = models.ImageField(
         upload_to='profile_pictures/',
+        blank=True,
+        null=True
+    )
+
+    reasons_for_therapy = models.TextField(
+        max_length=MAX_TEXT_LENGTH,
+        blank=True,
+        null=True
+    )
+
+    previous_speech_therapy_history = models.CharField(
+        choices=TYPE_CHOICES,
+        null=False,
+        blank=False,
+    )
+
+    additional_notes = models.TextField(
+        max_length=MAX_TEXT_LENGTH,
         blank=True,
         null=True
     )
@@ -75,6 +98,13 @@ class Profile(models.Model):
         primary_key=True,
         on_delete=models.CASCADE,
     )
+
+    @property
+    def age(self):
+        today = datetime.now().date()
+        age = today.year - self.date_of_birth.year - (
+                (today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return age
 
     @property
     def full_name(self):

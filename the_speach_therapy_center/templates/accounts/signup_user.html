@@ -13,17 +13,20 @@
             <p>Please fill out the form below to begin your journey towards improved communication and enhanced speech.</p>
             
             <form action="{% url 'signup user' %}" method="post">
-                <p>
+                <div class="php-email-form">
+                    <p>
                     {{ form.email|placeholder:'Email:' }}
-                </p>
-                <p>
-                    {{ form.password1|placeholder:'Password:' }}
-                </p>
-                <p>
-                    {{ form.password2|placeholder:'Confirm password:' }}
-                </p>
+                    </p>
+                    <p>
+                        {{ form.password1|placeholder:'Password:' }}
+                    </p>
+                    <p>
+                        {{ form.password2|placeholder:'Confirm password:' }}
+                    </p>
+                </div>
+                
 
-                <button type="submit">Register</button>
+                <button type="submit" class="appointment-btn">Register</button>
                 
                 {% csrf_token %}
             </form>

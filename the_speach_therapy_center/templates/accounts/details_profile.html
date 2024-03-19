@@ -3,27 +3,73 @@
 {% load static %}
 
 {% block main_content %}
-    <section id="appointment" class="appointment section-bg">
-      <div class="container">
-        <div class="section-title-registration">
-          <h2>Profile details:</h2>
-            {% if object.profile_picture %}
-                <img src="{{ object.profile_picture }}" class="main-profile-picture-height" alt="profile picture"/>
-            {% else %}
-                <img src="{% static 'img/person.png' %}" class="main-profile-picture-height" alt="profile picture"/>
-            {% endif %}
-            <p>First name: {{ object.first_name }}</p>
-            <p>Last name: {{ object.last_name }}</p>
-            <p>E-mail: {{ profile.user.email }}</p>
-            <p>Birthday: {{ object.date_of_birth }}</p>
-            {% if object.date_of_birth %}
-                <p>Age: {{ object.age }}</p>
-            {% endif %}
-            <a href="{% url 'edit profile' pk=object.pk %}" class="edit-delete-btn"> Edit profile</a>
 
-            <a href="{% url 'delete profile' pk=object.pk %}" class="edit-delete-btn"> Delete profile</a>
+    
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                {% if object.profile_picture %}
+                    <img src="{{ object.profile_picture.url }}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
+                {% else %}
+                    <img src="{% static 'img/person.png' %}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
+                {% endif %}
+                
+              <h5>{{ object.full_name }}</h5>
+                {% if object.date_of_birth %}
+                <p><strong>Birthday:</strong> {{ object.date_of_birth }}</p>
+                <p><strong>Age:</strong> {{ object.age }}</p>
+            {% endif %}
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Basic Information:</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{ profile.user.email }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted">{{ object.phone_number }}</p>
+                  </div>
+                </div>
+                <h6>Specific Information:</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Reasons for Seeking Therapy:</h6>
+                    <p class="text-muted">{{ object.reasons_for_therapy }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Previous Speech Therapy History:</h6>
+                    <p class="text-muted">{{ object.previous_speech_therapy_history }}</p>
+                  </div>
+                </div>
+                  <h6>Additional Notes/Comments:</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Notes:</h6>
+                    <p class="text-muted">{{ object.reasons_for_therapy }}</p>
+                  </div>
+                </div>
+              </div>
+                <a href="{% url 'edit profile' pk=object.pk %}" class="appointment-btn"> Edit </a>
+{#              <a href="{% url 'delete profile' pk=object.pk %}" class="appointment-btn"> Delete</a>#}
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+    
+</section>
     
     
 {% endblock %}
