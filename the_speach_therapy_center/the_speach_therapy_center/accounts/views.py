@@ -41,7 +41,8 @@ class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
 class ProfileUpdateView(views.UpdateView):
     queryset = Profile.objects.all()
     template_name = "accounts/edit_profile.html"
-    fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth', 'phone_number', 'reasons_for_therapy', 'previous_speech_therapy_history' )
+    fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth', 'phone_number', 'reasons_for_therapy',
+              'previous_speech_therapy_history', 'additional_notes')
 
     def get_success_url(self):
         return reverse('details profile', kwargs={'pk': self.object.pk})

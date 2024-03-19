@@ -47,6 +47,16 @@ class Profile(models.Model):
         ('No', 'No'),
     ]
 
+    REASONS_FOR_SPEACH_THERAPY = [
+        ('cognitive (intellectual, thinking) developmental delays', 'cognitive (intellectual, thinking) developmental delays'),
+        ('weak oral muscles', 'weak oral muscles'),
+        ('cleft lip or palate', 'cleft lip or palate'),
+        ('autism', 'autism'),
+        ('motor planning problems', 'motor planning problems'),
+        ('articulation problems', 'articulation problems'),
+        ('other', 'other'),
+    ]
+
     first_name = models.CharField(
         max_length=MAX_FIRST_NAME_LENGTH,
         blank=True,
@@ -76,7 +86,7 @@ class Profile(models.Model):
     )
 
     reasons_for_therapy = models.TextField(
-        max_length=MAX_TEXT_LENGTH,
+        choices=REASONS_FOR_SPEACH_THERAPY,
         blank=True,
         null=True
     )
