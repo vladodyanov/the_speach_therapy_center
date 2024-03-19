@@ -1849,7 +1849,7 @@ background: linear-gradient(to right bottom, rgb(101, 246, 234), rgb(10, 27, 129
 
 /* Center the form */
 .user-update-form {
-    width: 25%; /* Adjust as needed */
+    width: 33%; /* Adjust as needed */
     margin: 0 auto;
 }
 
