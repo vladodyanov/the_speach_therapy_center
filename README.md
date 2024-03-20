@@ -36,7 +36,7 @@ The decision to undertake the development of the Speech Therapy Center was motiv
     - for patients - after each session they can fill patient diary with build in questionnaire and monitor their progress.
 
 ## Screenshots
-<img align="right" width=480px  alt="home page view" src="[https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif](https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot1.jpg)" />
+<img align="right" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot1.jpg" />
 
 
 ## Setup
