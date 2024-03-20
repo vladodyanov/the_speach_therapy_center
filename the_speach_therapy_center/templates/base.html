@@ -74,14 +74,6 @@
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Patient records</a></li>
                 {% else %}
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Getting started</a></li>
-                    <li class="dropdown">
-                    <a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{% url 'pediatric' %}" class="{% if request.path == '/services/pediatric/' %}active{% endif %}">Pediatric Speech Services</a></li>
-                            <li><a href="{% url 'adult' %}" class="{% if request.path == '/services/adult/' %}active{% endif %}">Adult Speech Services</a></li>
-                            <li><a href="{% url 'occupational' %}" class="{% if request.path == '/services/occupational/' %}active{% endif %}">Occupational Speech Services</a></li>
-                        </ul>
-                </li>
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">User Diary</a></li>
                 {% endif %}
             <li><a class="nav-link  scrollto" href="{% url 'details profile' pk=request.user.pk %}">Profile</a></li>
@@ -89,11 +81,8 @@
             {% else %}
             <li><a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %} scrollto" href="{% url 'signup user' %}">Registration</a></li>
             <li><a class="nav-link {% if request.path == '/accounts/signin/' %}active{% endif %} scrollto" href="{% url 'signin user' %}">Login</a></li>
-            <li><a class="nav-link {% if request.path == '/contact/' %}active{% endif %} scrollto" href="{% url 'contact' %}">Contact</a></li>
             {% endif %}
-            
-            
-        
+        <li><a class="nav-link {% if request.path == '/contact/' %}active{% endif %} scrollto" href="{% url 'contact' %}">Contact</a></li>
         </ul>
         {% if not request.user.is_superuser or not request.user.is_staff %}
         
