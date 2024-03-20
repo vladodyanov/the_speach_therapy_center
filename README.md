@@ -40,6 +40,9 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot2.jpg" />
 
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot4.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot5.jpg" />
 
 ## Setup
 TBA
