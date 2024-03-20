@@ -18,3 +18,6 @@ class SpeachCenterUserCreationForm(auth_forms.UserCreationForm):
 class SpeachCenterChangeForm(auth_forms.UserChangeForm):
     class Meta(auth_forms.UserChangeForm.Meta):
         model = SpeachCenterUser
+
+
+

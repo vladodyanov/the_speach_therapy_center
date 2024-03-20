@@ -48,7 +48,8 @@ class Profile(models.Model):
     ]
 
     REASONS_FOR_SPEACH_THERAPY = [
-        ('cognitive (intellectual, thinking) developmental delays', 'cognitive (intellectual, thinking) developmental delays'),
+        ('cognitive (intellectual, thinking) developmental delays', 'cognitive (intellectual, thinking) developmental '
+                                                                    'delays'),
         ('weak oral muscles', 'weak oral muscles'),
         ('cleft lip or palate', 'cleft lip or palate'),
         ('autism', 'autism'),
@@ -93,14 +94,14 @@ class Profile(models.Model):
 
     previous_speech_therapy_history = models.CharField(
         choices=TYPE_CHOICES,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
 
     additional_notes = models.TextField(
         max_length=MAX_TEXT_LENGTH,
         blank=True,
-        null=True
+        null=True,
     )
 
     user = models.OneToOneField(

@@ -18,7 +18,10 @@ class SignInUserView(auth_views.LoginView):
 class SignUpUserView(views.CreateView):
     template_name = 'accounts/signup_user.html'
     form_class = SpeachCenterUserCreationForm
-    success_url = reverse_lazy('getting_started')
+    queryset = Profile.objects.all()
+
+    def get_success_url(self):
+        return reverse('details profile', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         result = super().form_valid(form)
@@ -40,9 +43,25 @@ class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
 
 class ProfileUpdateView(views.UpdateView):
     queryset = Profile.objects.all()
+
     template_name = "accounts/edit_profile.html"
     fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth', 'phone_number', 'reasons_for_therapy',
               'previous_speech_therapy_history', 'additional_notes')
+
+    def get_success_url(self):
+        return reverse('details profile', kwargs={'pk': self.object.pk})
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+        form.fields['date_of_birth'].widget.attrs['type'] = 'date'
+        return form
+
+
+class ProfileStaffUpdateView(views.UpdateView):
+    queryset = Profile.objects.all()
+
+    template_name = "accounts/edit_profile_staff.html"
+    fields = ('first_name', 'last_name', 'profile_picture', 'date_of_birth', 'phone_number')
 
     def get_success_url(self):
         return reverse('details profile', kwargs={'pk': self.object.pk})
@@ -62,3 +81,4 @@ class ProfileDeleteView(views.DeleteView):
         if request.user.is_authenticated:
             logout(request)
         return response
+
