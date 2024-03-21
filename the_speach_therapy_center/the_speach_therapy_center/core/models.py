@@ -5,9 +5,9 @@ UserModel = get_user_model()
 
 
 class UserRelatedEntity(models.Model):
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         UserModel,
-        on_delete=models.RESTRICT,
+        on_delete=models.CASCADE,
     )
 
     class Meta:

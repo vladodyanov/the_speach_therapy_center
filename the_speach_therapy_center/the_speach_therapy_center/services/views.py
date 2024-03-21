@@ -25,40 +25,30 @@ def getting_started(request):
 
 
 def questionnaires_page(request):
+    user = request.user
+    user_email = user.email
+    profile = Profile.objects.get(user=request.user)
+    full_name = profile.full_name
     questionnaires = UserQuestionnaire.objects.all()
     questionnaires_count = len([questionnaire for questionnaire in questionnaires])
-    context = {'questionnaires': questionnaires,
-               'questionnaires_count': questionnaires_count}
+    context = {
+        'questionnaires': questionnaires,
+        'questionnaires_count': questionnaires_count,
+        'user_email': user_email,
+        'full_name': full_name,
+        }
 
     return render(request, template_name='services/questionnaires.html', context=context)
 
-
-# class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
-#     form_class = CreateQuestionnaireForm
-#     template_name = "services/questionnaire_create.html"
-#
-#     def get_success_url(self):
-#         return reverse("details pet", kwargs={
-#             "username": "Doncho",
-#             "questions_slug": self.object.slug,
-#         })
-#
-#     def get_form(self, form_class=None):
-#         form = super().get_form(form_class=form_class)
-#
-#         form.instance.user = self.request.user
-#         return form
 
 class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
     form_class = CreateQuestionnaireForm
     template_name = 'services/questionnaire_create.html'
     success_url = reverse_lazy('questionnaires_page')
 
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class=form_class)
-
+    def form_valid(self, form):
         form.instance.user = self.request.user
-        return form
+        return super().form_valid(form)
 
 
 class DetailsQuestionnaireView(views.DetailView):

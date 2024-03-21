@@ -7,19 +7,64 @@
     <section id="appointment" class="appointment section-bg">
       <div class="container">
         <div class="section-title-registration">
-            <h2> User Diary</h2>
-                <a href="{% url 'create_questionnaire' %}">Add questionnaire </a>
+            {% if full_name %}
+                <h2>{{ full_name }}'s Diary </h2>
+            {% else %}
+                <h3>{{ user_email }}'s Diary !</h3>
+            {% endif %}
+            
+                <a href="{% url 'create_questionnaire' %}" class="appointment-btn">Add questionnaire </a>
                 {% for questionnaire in questionnaires %}
-                    <h3>User questionnaire </h3>
-                    {{ questionnaire.name }}
-                    {{ questionnaire.created_at }}
-                    {{ questionnaire.question_one }}
-                    {{ questionnaire.question_two }}
-                    {{ questionnaire.question_three }}
-                    {{ questionnaire.question_four }}
-                    {{ questionnaire.question_five }}
+                   <section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+            <h5>{{ questionnaire.created_at }}</h5>
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              {% if full_name %}
+                <h5>{{ full_name }}'s Diary </h5>
+            {% else %}
+                <h5>{{ user_email }}'s Diary !</h5>
+            {% endif %}
+            <h6>Created at:  </h6>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                      <h3>Questionnaire No {{ questionnaire.pk }} </h3>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                      <h6>Add your experience:</h6>
+                        <p class="text-muted">{{ questionnaire.name }}</p>
+                      <h6>"How often do you experience difficulty pronouncing certain sounds?"</h6>
+                        <p class="text-muted">{{ questionnaire.question_one }}</p>
+                      <h6>"Do you feel confident when speaking in public?"</h6>
+                        <p class="text-muted">{{ questionnaire.question_two }}</p>
+                      <h6>"Have you noticed any changes in your voice quality or pitch recently?"</h6>
+                        <p class="text-muted">{{ questionnaire.question_three }}</p>
+                      <h6>"Do you struggle with stuttering or stammering?"</h6>
+                        <p class="text-muted">{{ questionnaire.question_four }}</p>
+                      <h6>"Have you ever had difficulty understanding or following conversations?"</h6>
+                        <p class="text-muted">{{ questionnaire.question_five }}</p>
+                  </div>
+                </div>
+              </div>
+                    <a href="#" class="appointment-btn"> Update </a>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</section>
                 {% endfor %}
         </div>
       </div>
     
 {% endblock %}
+

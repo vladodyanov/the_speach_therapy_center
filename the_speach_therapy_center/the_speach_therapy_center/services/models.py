@@ -11,11 +11,11 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
     MAX_NAME_LENGTH = 30
 
     ANSWER_CHOICES = [
-        ('A1', 'Never'),
-        ('A2', 'Rarely'),
-        ('A3', 'Occasionally'),
-        ('A4', 'Frequently'),
-        ('A5', 'Always'),
+        ('Never', 'Never'),
+        ('Rarely', 'Rarely'),
+        ('Occasionally', 'Occasionally'),
+        ('Frequently', 'Frequently'),
+        ('Always', 'Always'),
     ]
 
     name = models.CharField(
@@ -23,10 +23,6 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         null=False,
         blank=False,
         verbose_name="Your name:",
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True
     )
 
     question_one = models.TextField(
@@ -64,4 +60,6 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         verbose_name="Have you ever had difficulty understanding or following conversations?"
     )
 
-
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
