@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load filters %}
+
+{% block main_content %}
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+        <div class="section-title-registration">
+            <h2> User Diary</h2>
+                <a href="{% url 'create_questionnaire' %}">Add questionnaire </a>
+                {% for questionnaire in questionnaires %}
+                    <h3>User questionnaire </h3>
+                    {{ questionnaire.name }}
+                    {{ questionnaire.created_at }}
+                    {{ questionnaire.question_one }}
+                    {{ questionnaire.question_two }}
+                    {{ questionnaire.question_three }}
+                    {{ questionnaire.question_four }}
+                    {{ questionnaire.question_five }}
+                {% endfor %}
+        </div>
+      </div>
+    
+{% endblock %}

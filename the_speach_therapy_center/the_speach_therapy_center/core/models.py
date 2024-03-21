@@ -4,7 +4,7 @@ from django.db import models
 UserModel = get_user_model()
 
 
-class IHaveUser(models.Model):
+class UserRelatedEntity(models.Model):
     user = models.OneToOneField(
         UserModel,
         on_delete=models.RESTRICT,
