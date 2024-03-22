@@ -18,13 +18,6 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         ('Always', 'Always'),
     ]
 
-    name = models.CharField(
-        max_length=MAX_NAME_LENGTH,
-        null=False,
-        blank=False,
-        verbose_name="Your name:",
-    )
-
     question_one = models.TextField(
         choices=ANSWER_CHOICES,
         null=False,
@@ -58,6 +51,13 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         null=False,
         blank=False,
         verbose_name="Have you ever had difficulty understanding or following conversations?"
+    )
+
+    comments = models.CharField(
+        max_length=MAX_NAME_LENGTH,
+        null=False,
+        blank=False,
+        verbose_name="Additional Comments/Feedback:",
     )
 
     created_at = models.DateTimeField(

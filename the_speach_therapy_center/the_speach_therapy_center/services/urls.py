@@ -4,8 +4,8 @@ from the_speach_therapy_center.services.views import getting_started, CreateQues
     EditQuestionnaireView, DeleteQuestionnaireView, questionnaires_page
 
 urlpatterns = (
-    path('getstarted/', questionnaires_page, name='questionnaires_page'),
-    path('questionnaires/', getting_started, name='getting_started'),
+    path('getstarted/',getting_started, name='getting_started'),
+    path('questionnaires/', questionnaires_page, name='questionnaires_page'),
     path('create/', CreateQuestionnaireView.as_view(), name='create_questionnaire'),
     path("<int:pk>/",
          include([
