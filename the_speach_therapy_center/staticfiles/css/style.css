@@ -1891,7 +1891,9 @@ background: linear-gradient(to right bottom, rgb(101, 246, 234), rgb(10, 27, 129
 /*--------------------------------------------------------------
 # Questionnaires
 --------------------------------------------------------------*/
-
+.questionnaires-container{
+  column-gap: 20px;
+}
 .q-card {
     background-color: #3498db; /* Blue color */
     color: #fff; /* White text */

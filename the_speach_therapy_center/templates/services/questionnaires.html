@@ -17,9 +17,9 @@
         
         </div>
       </div>
-    <div class="justify-content-center align-items-center">
+    <div class="d-flex flex-wrap justify-content-center align-items-center questionnaires-container ">
     {% for questionnaire in questionnaires %}
-        <div class="card bg-light mb-3 display:flex justify-content-center align-items-center" style="max-width: 60rem;">
+        <div class="card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
             <div class="card-header">Date: {{ questionnaire.created_at }}</div>
                 <div class="card-body">
                       <h5 class="card-title">Question 1: "How often do you experience difficulty pronouncing certain sounds?"</h5>
