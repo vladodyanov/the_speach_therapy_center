@@ -1887,3 +1887,41 @@ background: linear-gradient(to right bottom, rgb(101, 246, 234), rgb(10, 27, 129
 .user-update-form textarea {
     text-align: justify;
 }
+
+/*--------------------------------------------------------------
+# Questionnaires
+--------------------------------------------------------------*/
+
+.q-card {
+    background-color: #3498db; /* Blue color */
+    color: #fff; /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.q-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.q-card h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.q-card h6 {
+    font-size: 16px;
+    margin-top: 20px; /* Add some space between questions */
+}
+
+.q-card p {
+    font-size: 14px;
+    margin-bottom: 20px; /* Add some space between questions and comments */
+}
+
+.text-muted {
+    color: #ccc; /* Light gray color for muted text */
+}
