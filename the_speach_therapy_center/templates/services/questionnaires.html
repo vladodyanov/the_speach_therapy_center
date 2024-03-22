@@ -8,34 +8,43 @@
       <div class="container">
         <div class="section-title-registration">
             {% if full_name %}
-                <h2>{{ full_name }}'s Diary </h2>
-            {% else %}
-                <h3>{{ user_email }}'s Diary !</h3>
-            {% endif %}
-            <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
-            
-                <a href="{% url 'create_questionnaire' %}" class="appointment-btn">Add questionnaire </a>
-                {% for questionnaire in questionnaires %}
-                    
-                    <div class="q-card">
-                        <h3>{{ questionnaire.created_at }}</h3>
-                        <h6>"How often do you experience difficulty pronouncing certain sounds?"</h6>
-                            <p class="text-muted">{{ questionnaire.question_one }}</p>
-                        <h6>"Do you feel confident when speaking in public?"</h6>
-                            <p class="text-muted">{{ questionnaire.question_two }}</p>
-                        <h6>"Have you noticed any changes in your voice quality or pitch recently?"</h6>
-                            <p class="text-muted">{{ questionnaire.question_three }}</p>
-                        <h6>"Do you struggle with stuttering or stammering?"</h6>
-                            <p class="text-muted">{{ questionnaire.question_four }}</p>
-                        <h6>"Have you ever had difficulty understanding or following conversations?"</h6>
-                            <p class="text-muted">{{ questionnaire.question_five }}</p>
-                    
-                        <h6>Additional comments/notes:</h6>
-                        <p class="text-muted">{{ questionnaire.comments }}</p>
-                    </div>
-                {% endfor %}
+                    <h2>{{ full_name }}'s Diary </h2>
+                {% else %}
+                    <h3>{{ user_email }}'s Diary !</h3>
+                {% endif %}
+                    <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
+            <a href="{% url 'create_questionnaire' %}" class="appointment-btn">Add questionnaire </a>
+        
         </div>
       </div>
-    </section>
+    <div class="justify-content-center align-items-center">
+    {% for questionnaire in questionnaires %}
+        <div class="card bg-light mb-3 display:flex justify-content-center align-items-center" style="max-width: 60rem;">
+            <div class="card-header">Date: {{ questionnaire.created_at }}</div>
+                <div class="card-body">
+                      <h5 class="card-title">Question 1: "How often do you experience difficulty pronouncing certain sounds?"</h5>
+                        <p class="card-text">Answer: {{ questionnaire.question_one }}</p>
+                      <h5 class="card-title">Question 2: "Do you feel confident when speaking in public?"</h5>
+                        <p class="card-text">Answer: {{ questionnaire.question_two }}</p>
+                      <h5 class="card-title">Question 3: "Have you noticed any changes in your voice quality or pitch recently?"</h5>
+                        <p class="card-text">Answer: {{ questionnaire.question_three }}</p>
+                      <h5 class="card-title">Question 4: "Do you struggle with stuttering or stammering?"</h5>
+                        <p class="card-text">Answer: {{ questionnaire.question_four }}</p>
+                      <h5 class="card-title">Question 5: "Have you ever had difficulty understanding or following conversations?"</h5>
+                        <p class="card-text">Answer: {{ questionnaire.question_five }}</p>
+                      <h5 class="card-title">Additional comments/notes:</h5>
+                        <p class="card-text">Notes: {{ questionnaire.comments }}</p>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+    
 {% endblock %}
 
+
+
+
+
+                
+
+                    
