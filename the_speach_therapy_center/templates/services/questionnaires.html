@@ -14,7 +14,7 @@
                 {% endif %}
                     <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
             <a href="{% url 'create_questionnaire' %}" class="appointment-btn">Add questionnaire </a>
-        
+
         </div>
       </div>
     <div class="d-flex flex-wrap justify-content-center align-items-center questionnaires-container ">
@@ -34,17 +34,17 @@
                         <p class="card-text">Answer: {{ questionnaire.question_five }}</p>
                       <h5 class="card-title">Additional comments/notes:</h5>
                         <p class="card-text">Notes: {{ questionnaire.comments }}</p>
+                    <a href="{% url 'edit_questionnaire' pk=questionnaire.pk %}" class="appointment-btn"> Update </a>
                 </div>
             </div>
     {% endfor %}
     </div>
-    
+
 {% endblock %}
 
 
 
 
 
-                
 
-                    
+

@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.utils.text import slugify
+
 
 from the_speach_therapy_center.core.models import UserRelatedEntity
 
@@ -8,7 +8,7 @@ UserModel = get_user_model()
 
 
 class UserQuestionnaire(UserRelatedEntity, models.Model):
-    MAX_NAME_LENGTH = 30
+    MAX_COMMENTS_LENGTH = 500
 
     ANSWER_CHOICES = [
         ('Never', 'Never'),
@@ -22,7 +22,7 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         choices=ANSWER_CHOICES,
         null=False,
         blank=False,
-        verbose_name="How often do you experience difficulty pronouncing certain sounds?"
+        verbose_name="How often do you experience difficulty pronouncing certain sounds?",
     )
 
     question_two = models.TextField(
@@ -54,7 +54,7 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
     )
 
     comments = models.CharField(
-        max_length=MAX_NAME_LENGTH,
+        max_length=MAX_COMMENTS_LENGTH,
         null=False,
         blank=False,
         verbose_name="Additional Comments/Feedback:",

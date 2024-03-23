@@ -59,11 +59,11 @@ class DetailsQuestionnaireView(views.DetailView):
 
 
 class EditQuestionnaireView(views.UpdateView):
-    pass
-    # queryset = Car.objects.all()
-    # fields = ('type', 'model', 'year', 'image_url', 'price')
-    # template_name = 'car/car-edit.html'
-    # success_url = reverse_lazy('catalogue')
+    queryset = UserQuestionnaire.objects.all()
+    fields = ['question_one', 'question_two', 'question_three', 'question_four',
+              'question_five', 'comments', ]
+    template_name = 'services/questionnaire_edit.html'
+    success_url = reverse_lazy('questionnaires_page')
 
 
 class DeleteQuestionnaireView(views.DeleteView):
