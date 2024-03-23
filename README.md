@@ -4,6 +4,7 @@ The Speech Therapy Center is a comprehensive web application designed to facilit
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
+* [User Management](#user-management)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
@@ -27,6 +28,10 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 - HTML5 
 - CSS
 - Java Script
+
+## User Management
+User/Staff Registration: New users and staff can create accounts with unique emails and passwords.
+User/Staff Login: Registered users and staff can log in securely to access their profiles.
 
 
 ## Features
