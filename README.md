@@ -30,8 +30,8 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 - Java Script
 
 ## User Management
-User/Staff Registration: New users and staff can create accounts with unique emails and passwords.
-User/Staff Login: Registered users and staff can log in securely to access their profiles.
+- User/Staff Registration: New users and staff can create accounts with unique emails and passwords.
+- User/Staff Login: Registered users and staff can log in securely to access their profiles.
 
 
 ## Features
