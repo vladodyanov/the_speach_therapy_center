@@ -1,9 +1,7 @@
 from the_speach_therapy_center.accounts.models import Profile
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
-from django.forms import modelform_factory
+from django.shortcuts import render
+
 from django.urls import reverse_lazy
-from django.views import generic as views
 
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
@@ -49,13 +47,6 @@ class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-
-
-class DetailsQuestionnaireView(views.DetailView):
-    pass
-    # queryset = Car.objects.all()
-    # fields = ('type', 'model', 'year', 'image_url', 'price')
-    # template_name = 'car/car-details.html'
 
 
 class EditQuestionnaireView(views.UpdateView):
