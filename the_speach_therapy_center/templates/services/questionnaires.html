@@ -34,7 +34,12 @@
                         <p class="card-text">Answer: {{ questionnaire.question_five }}</p>
                       <h5 class="card-title">Additional comments/notes:</h5>
                         <p class="card-text">Notes: {{ questionnaire.comments }}</p>
-                    <a href="{% url 'edit_questionnaire' pk=questionnaire.pk %}" class="appointment-btn"> Update </a>
+                    
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="{% url 'edit_questionnaire' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Update</a>
+                        <a href="{% url 'delete_questionnaire' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Delete</a>
+                    </div>
+                    
                 </div>
             </div>
     {% endfor %}

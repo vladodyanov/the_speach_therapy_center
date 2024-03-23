@@ -71,12 +71,16 @@
                   {% endif %}
               
               </div>
-                {% if  request.user.is_superuser or  request.user.is_staff %}
-                    <a href="{% url 'edit profile staff' pk=object.pk %}" class="appointment-btn"> Update </a>
-                {% else %}
-                    <a href="{% url 'edit profile' pk=object.pk %}" class="appointment-btn"> Update </a>
-                {% endif %}
-{#              <a href="{% url 'delete profile' pk=object.pk %}" class="appointment-btn"> Delete</a>#}
+            
+                <div class="d-flex flex-wrap justify-content-center align-items-center mb-3">
+                    {% if  request.user.is_superuser or  request.user.is_staff %}
+                        <a href="{% url 'edit profile staff' pk=object.pk %}" class="appointment-btn"> Update </a>
+                    {% else %}
+                        <a href="{% url 'edit profile' pk=object.pk %}" class="btn btn-primary"> Update </a>
+                    {% endif %}
+{#                      <a href="{% url 'delete profile' pk=object.pk %}" class="appointment-btn"> Delete</a>#}
+                </div>
+                
             </div>
           </div>
         </div>

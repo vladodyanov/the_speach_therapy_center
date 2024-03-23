@@ -7,16 +7,18 @@
     <section class="h-auto" style="background-color: #f4f5f7;">
       <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
         <div class="section-title-registration">
-            <h2> Edit Profile</h2>
-                <form action="{% url 'edit profile staff' pk=object.pk %}" method="post" enctype="multipart/form-data" class="user-update-form">
-                    
-                    {{ form.as_p}}
-                    
-                <button class="btn btn-primary" type="submit">Save</button>
+            
+            <h2>Are you sure you want to delete your questionnaire?</h2>
+          
+        <form action ="{% url 'delete_questionnaire' pk=object.pk %}"  method="post">
+            
+        <input class="btn btn-primary" type="submit" value="Yes">
             {% csrf_token %}
-                </form>
+            
+        </form>
         </div>
       </div>
+    <section
    
     
 {% endblock %}

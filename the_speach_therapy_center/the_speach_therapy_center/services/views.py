@@ -67,13 +67,7 @@ class EditQuestionnaireView(views.UpdateView):
 
 
 class DeleteQuestionnaireView(views.DeleteView):
-    pass
-    # queryset = Car.objects.all()
-    # template_name = 'car/car-delete.html'
-    # form_class = modelform_factory(Car, fields=('type', 'model', 'year', 'image_url', 'price'))
-    # success_url = reverse_lazy('catalogue')
-    #
-    # def get_form_kwargs(self):
-    #     kwargs = super().get_form_kwargs()
-    #     kwargs['instance'] = self.object
-    #     return kwargs
+    queryset = UserQuestionnaire.objects.all()
+    template_name = 'services/questionnaire_delete.html'
+    success_url = reverse_lazy('questionnaires_page')
+

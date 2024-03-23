@@ -13,7 +13,7 @@
           
         <form action ="{% url 'delete profile' pk=object.pk %}"  method="post">
             
-        <input class="appointment-btn" type="submit" value="Yes">
+        <input class="btn btn-primary" type="submit" value="Yes">
             {% csrf_token %}
             
         </form>
