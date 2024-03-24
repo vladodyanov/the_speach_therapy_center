@@ -18,8 +18,8 @@ The Speech Therapy Center is a comprehensive web application designed to facilit
 
 ## General Information
 The Speech Therapy Center aims to address the challenges faced by speech therapy clinics in managing patient appointments, treatment records, and communication between patients and staff. Traditional methods of managing appointments and patient records using paper-based systems or disparate digital tools can be inefficient and prone to errors. This application seeks to streamline these processes and enhance communication for improved patient care and administrative efficiency. 
-The purpose of the Speech Therapy Center is to provide a centralized platform for patients to schedule appointments, access treatment resources, and communicate with their therapists. For staff members, the platform offers tools for managing appointments, recording patient progress, and communicating with patients. By digitizing and centralizing these processes, the application aims to improve overall clinic efficiency and enhance the patient experience. 
-The decision to undertake the development of the Speech Therapy Center was motivated by a recognition of the need for modernized and efficient management tools in speech therapy clinics. As the demand for speech therapy services continues to grow, there is a corresponding need for streamlined administrative processes and improved communication channels between patients and staff. By developing this application, we aim to contribute to the advancement of speech therapy services and the well-being of patients in our community.
+The purpose of the Speech Therapy Center is to provide a centralized platform for patients to schedule appointments, access treatment resources, and communicate with their therapists. For staff members, the platform offers  recording patient progress, and communicating with patients. By digitizing and centralizing these processes, the application aims to improve overall clinic efficiency and enhance the patient experience. 
+The decision to undertake the development of the Speech Therapy Center was motivated by a recognition of the need for modernized and efficient management tools in speech therapy clinics. As the demand for speech therapy services continues to grow, there is a corresponding need for streamlined administrative processes and improved communication channels between patients and staff. By developing this application, I aim to contribute to the advancement of speech therapy services and the well-being of patients in our community.
 
 
 ## Technologies Used
@@ -48,6 +48,10 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot4.jpg" />
 
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot5.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot6.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot7.jpg" />
 
 ## Setup
 TBA
