@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-
 from the_speach_therapy_center.core.models import UserRelatedEntity
 
 UserModel = get_user_model()

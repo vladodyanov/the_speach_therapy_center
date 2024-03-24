@@ -5,8 +5,6 @@ from the_speach_therapy_center.accounts.managers import SpeachCenterUserManager
 from datetime import datetime
 from django.utils import timezone
 
-# auth_models.AbstractUser
-
 
 class SpeachCenterUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
     email = models.EmailField(
