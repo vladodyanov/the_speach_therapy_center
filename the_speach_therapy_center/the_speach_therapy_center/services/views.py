@@ -83,7 +83,6 @@ class DeleteQuestionnaireView(views.DeleteView):
 def make_an_appointment(request):
     # Calling 'valid_weekday' Function to Loop days you want in the next 21 days:
     weekdays = valid_weekday(22)
-
     # Only show the days that are not full:
     validate_weekdays = is_weekday_valid(weekdays)
 
@@ -97,7 +96,6 @@ def make_an_appointment(request):
         # Store day and service in django session:
         request.session['day'] = day
         request.session['service'] = service
-
         return redirect('appointment submit')
 
     return render(request, 'services/appointment_create.html', {
@@ -129,7 +127,7 @@ def appointment_submit(request):
 
         if service is not None:
             if max_date >= day >= min_date:
-                if date == 'Monday' or date == 'Saturday' or date == 'Wednesday':
+                if date != 'Sunday' or date != 'Saturday':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1:
                             appointment_form = Appointment.objects.get_or_create(
@@ -173,10 +171,9 @@ def appointment_update(request, id):
     min_date = today.strftime('%Y-%m-%d')
 
     # 24h if statement in template:
-    delta24 = (user_date_picked).strftime('%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
-    # Calling 'valid_weekday' Function to Loop days you want in the next 21 days:
+    delta24 = user_date_picked.strftime('%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
+    # Calling 'valid_weekday' Function to Loop days  in the next 21 days:
     weekdays = valid_weekday(22)
-
     # Only show the days that are not full:
     validate_weekdays = is_weekday_valid(weekdays)
 
@@ -188,14 +185,15 @@ def appointment_update(request, id):
         request.session['day'] = day
         request.session['service'] = service
 
-        return redirect('userUpdateSubmit', id=id)
+        return redirect('appointment update submit', id=id)
 
     return render(request, 'services/appointment_update.html', {
         'weekdays': weekdays,
         'validate_weekdays': validate_weekdays,
         'delta24': delta24,
         'id': id,
-    })
+    }
+                  )
 
 
 def appointment_update_submit(request, id):
@@ -221,7 +219,7 @@ def appointment_update_submit(request, id):
 
         if service is not None:
             if max_date >= day >= min_date:
-                if date == 'Monday' or date == 'Saturday' or date == 'Wednesday':
+                if date != 'Sunday' or date != 'Saturday':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1 or user_selected_time == time:
                             appointment_form = Appointment.objects.filter(pk=id).update(
@@ -231,7 +229,7 @@ def appointment_update_submit(request, id):
                                 time=time,
                             )
                             messages.success(request, "Appointment Edited!")
-                            return redirect('index')
+                            return redirect('appointments_page')
                         else:
                             messages.success(request, "The Selected Time Has Been Reserved Before!")
                     else:
@@ -242,7 +240,7 @@ def appointment_update_submit(request, id):
                 messages.success(request, "The Selected Date Isn't In The Correct Time Period!")
         else:
             messages.success(request, "Please Select A Service!")
-        return redirect('userPanel')
+        return redirect('appointments_page')
 
     return render(request, 'services/appointment_update_submit.html', {
         'times': hour,
@@ -271,13 +269,14 @@ def day_to_weekday(x):
 
 
 def valid_weekday(days):
+    weekdays_list = ['Monday', 'Tuesday', 'Thursday', 'Wednesday', 'Friday']
     # Loop days you want in the next 21 days:
     today = datetime.now()
     weekdays = []
     for i in range(0, days):
         x = today + timedelta(days=i)
         y = x.strftime('%A')
-        if y == 'Monday' or y == 'Saturday' or y == 'Wednesday':
+        if y in weekdays_list:
             weekdays.append(x.strftime('%Y-%m-%d'))
     return weekdays
 
