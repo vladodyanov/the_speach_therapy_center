@@ -7,15 +7,15 @@
     <section class="h-auto" style="background-color: #f4f5f7;">
       <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
         <div class="section-title-registration">
-            
+
             {% if user.is_authenticated %}
                 <h3 class="text-center  mt-3">Make an appointment:</h3>
                     <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
-                        <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
-                        
+                        <form method="post" action="{% url 'make appointment' %}" class="me-2 ms-2" required>
+
                         <div>
                             <h4 class="">Select Service:</h4>
-                            <select class="form-select " name="service">
+                            <select class="form-select-lm " name="service">
                                 <option value="Pediatric speech service">Pediatric speech service</option>
                                 <option value="Adult speech service">Adult speech service</option>
                                 <option value="Occupational therapy service">Occupational therapy service</option>
@@ -24,13 +24,13 @@
                             <!--input day-->
                             <div class="mt-3">
                                 <h4 class="">Select Day:</h4>
-                                <select class="form-select " name="day">
+                                <select class="form-select-lm " name="day">
                                     {% for validate_weekday in validate_weekdays %}
                                     <option value="{{validate_weekday}}">{{validate_weekday}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                
+
                             <br/>
                             <button type="submit" class="btn btn-primary text-white">Continue</button>
                             {% csrf_token %}
@@ -46,12 +46,12 @@
 </div>
 
 {% endif %}
-                
+
         </div>
       </div>
     </section>
-   
-    
+
+
 {% endblock %}
 
 

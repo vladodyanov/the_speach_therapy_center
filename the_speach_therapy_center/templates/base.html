@@ -74,7 +74,11 @@
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Patient records</a></li>
                 {% else %}
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Getting started</a></li>
-                    <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'questionnaires_page' %}">User Diary</a></li>
+                    <li class="dropdown"><a href="{% url 'appointments_page' %}"><span>User Diary</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                          <li><a href="{% url 'appointments_page' %}">Appointments</a></li>
+                          <li><a href="{% url 'questionnaires_page' %}">Questionnaires</a></li>
+                        </ul>
                 {% endif %}
             <li><a class="nav-link  scrollto" href="{% url 'details profile' pk=request.user.pk %}">Profile</a></li>
             <li><a class="nav-link" href="{% url 'signout user' %}">Logout</a></li>
@@ -89,7 +93,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="{% url 'booking' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="{% url 'make appointment' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
         {% endif %}
     </div>
   </header>

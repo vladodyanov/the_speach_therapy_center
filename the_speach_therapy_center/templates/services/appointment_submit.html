@@ -11,10 +11,10 @@
             <h4 class="text-center fPersian mt-3">Please select time:</h4>
 
                 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black text-center m-5">
-                    <form method="post" action="{% url 'booking_submit' %}" class="me-2 ms-2" required>
+                    <form method="post" action="{% url 'appointment submit' %}" class="me-2 ms-2" required>
                         <h3 class="text-center fPersian mt-4">Time:</h3>
                         <div>
-                            <select class="form-select  text-center" name="time">
+                            <select class="form-select-lm  text-center" name="time">
                                 {% for time in times %}
                                 <option value="{{time}}">{{time}}</option>
                                 {% endfor %}

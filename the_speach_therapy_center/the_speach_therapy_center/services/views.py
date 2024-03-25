@@ -33,16 +33,27 @@ def questionnaires_page(request):
     full_name = profile.full_name
     questionnaires = UserQuestionnaire.objects.all()
     questionnaires_count = len([questionnaire for questionnaire in questionnaires])
-    appointments = Appointment.objects.filter(user=user).order_by('day', 'time')
     context = {
         'questionnaires': questionnaires,
         'questionnaires_count': questionnaires_count,
         'user_email': user_email,
         'full_name': full_name,
+    }
+    return render(request, template_name='services/questionnaires.html', context=context)
+
+
+def appointments_page(request):
+    user = request.user
+    user_email = user.email
+    profile = Profile.objects.get(user=request.user)
+    full_name = profile.full_name
+    appointments = Appointment.objects.filter(user=user).order_by('day', 'time')
+    context = {
+        'user_email': user_email,
+        'full_name': full_name,
         'appointments': appointments,
     }
-
-    return render(request, template_name='services/questionnaires.html', context=context)
+    return render(request, template_name='services/appointments.html', context=context)
 
 
 class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
@@ -69,7 +80,7 @@ class DeleteQuestionnaireView(views.DeleteView):
     success_url = reverse_lazy('questionnaires_page')
 
 
-def booking(request):
+def make_an_appointment(request):
     # Calling 'valid_weekday' Function to Loop days you want in the next 21 days:
     weekdays = valid_weekday(22)
 
@@ -81,21 +92,21 @@ def booking(request):
         day = request.POST.get('day')
         if service is None:
             messages.success(request, "Please Select A Service!")
-            return redirect('booking')
+            return redirect('make appointment')
 
         # Store day and service in django session:
         request.session['day'] = day
         request.session['service'] = service
 
-        return redirect('booking_submit')
+        return redirect('appointment submit')
 
-    return render(request, 'services/booking.html', {
+    return render(request, 'services/appointment_create.html', {
         'weekdays': weekdays,
         'validate_weekdays': validate_weekdays,
     })
 
 
-def booking_submit(request):
+def appointment_submit(request):
     user = request.user
     times = [
         "3 PM", "4 PM", "5 PM", "6 PM", "7 PM"
@@ -140,7 +151,7 @@ def booking_submit(request):
         else:
             messages.success(request, "Please Select A Service!")
 
-    return render(request, 'services/booking_submit.html', {
+    return render(request, 'services/appointment_submit.html', {
         'times': hour,
     })
 
@@ -154,7 +165,7 @@ def booking_submit(request):
 #     })
 
 
-def user_update(request, id):
+def appointment_update(request, id):
     appointment = Appointment.objects.get(pk=id)
     user_date_picked = appointment.day
     # Copy  booking:
@@ -179,7 +190,7 @@ def user_update(request, id):
 
         return redirect('userUpdateSubmit', id=id)
 
-    return render(request, 'services/user_update.html', {
+    return render(request, 'services/appointment_update.html', {
         'weekdays': weekdays,
         'validate_weekdays': validate_weekdays,
         'delta24': delta24,
@@ -187,7 +198,7 @@ def user_update(request, id):
     })
 
 
-def user_update_submit(request, id):
+def appointment_update_submit(request, id):
     user = request.user
     times = [
         "3 PM", "4 PM", "5 PM", "6 PM", "7 PM"
@@ -200,11 +211,10 @@ def user_update_submit(request, id):
 
     day = request.session.get('day')
     service = request.session.get('service')
-
-    # Only show the time of the day that has not been selected before and the time he is editing:
     hour = check_edit_time(times, day, id)
     appointment = Appointment.objects.get(pk=id)
     user_selected_time = appointment.time
+
     if request.method == 'POST':
         time = request.POST.get("time")
         date = day_to_weekday(day)
@@ -214,7 +224,7 @@ def user_update_submit(request, id):
                 if date == 'Monday' or date == 'Saturday' or date == 'Wednesday':
                     if Appointment.objects.filter(day=day).count() < 11:
                         if Appointment.objects.filter(day=day, time=time).count() < 1 or user_selected_time == time:
-                            AppointmentForm = Appointment.objects.filter(pk=id).update(
+                            appointment_form = Appointment.objects.filter(pk=id).update(
                                 user=user,
                                 service=service,
                                 day=day,
@@ -234,7 +244,7 @@ def user_update_submit(request, id):
             messages.success(request, "Please Select A Service!")
         return redirect('userPanel')
 
-    return render(request, 'services/user_update_submit.html', {
+    return render(request, 'services/appointment_update_submit.html', {
         'times': hour,
         'id': id,
     })
