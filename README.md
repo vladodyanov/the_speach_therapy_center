@@ -35,23 +35,29 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 
 ## Features
-- Functionality without login credentials : information about the center, contact and location information, gallery, appointment functionality.
+- Functionality without login credentials : information about the center, contact and location information, gallery.
 - Functionality with login credentials:
-    - for staff - terapists can manage patient records in the app.
-    - for patients - after each session they can fill patient diary with build in questionnaire and monitor their progress.
+     - for patients - Patients can make appointments and update them. After each session they can fill patient diary with build in questionnaire and monitor their progress. All apointments are visible in the User diary section via dropbowns.
+     - for staff - Terapists can view appointments and manage patient records in the app.
 
 ## Screenshots
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot1.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot1.jpg" />
 
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot2.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot2.jpg" />
 
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot4.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot4.jpg" />
 
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot5.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot5.jpg" />
 
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot6.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot6.jpg" />
 
-<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/Screenshot7.jpg" />
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot7.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot8.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot9.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot9.jpg" />
 
 ## Setup
 TBA
