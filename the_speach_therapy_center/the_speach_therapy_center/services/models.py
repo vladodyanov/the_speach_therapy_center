@@ -1,9 +1,49 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-
+from datetime import datetime
 from the_speach_therapy_center.core.models import UserRelatedEntity
 
 UserModel = get_user_model()
+
+
+class Appointment(UserRelatedEntity, models.Model):
+    SERVICE_CHOICES = (
+        ("Pediatric speech service", "Pediatric speech service"),
+        ("Adult speech service", "Adult speech service"),
+        ("Occupational therapy service", "Occupational therapy service"),
+
+    )
+    TIME_CHOICES = (
+        ("3 PM", "3 PM"),
+        ("4 PM", "4 PM"),
+        ("5 PM", "5 PM"),
+        ("6 PM", "6 PM"),
+        ("7 PM", "7 PM"),
+    )
+
+    service = models.CharField(
+        max_length=50,
+        choices=SERVICE_CHOICES,
+        default="Pediatric speech service"
+    )
+
+    day = models.DateField(
+        default=datetime.now
+    )
+
+    time = models.CharField(
+        max_length=10,
+        choices=TIME_CHOICES,
+        default="3 PM"
+    )
+
+    time_ordered = models.DateTimeField(
+        default=datetime.now,
+        blank=True
+    )
+
+    def __str__(self):
+        return f"{self.user.email} | day: {self.day} | time: {self.time}"
 
 
 class UserQuestionnaire(UserRelatedEntity, models.Model):
