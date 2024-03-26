@@ -4,21 +4,18 @@
 {% load filters %}
 
 {% block main_content %}
-    <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container d-flex justify-content-center align-items-center">
-        <div class="section-title-registration ">
+    <section class="h-auto " style="background-color: #f4f5f7;">
+      <div class="container">
+        <div class="section-title-registration">
             <h3>Patient details:</h3>
-        
-            {% for patient in patients %}
                 <section class="h-auto" style="background-color: #f4f5f7;">
-                  <div class="container py-5 h-auto">
                     <div class="row d-flex justify-content-center align-items-center h-auto">
                       <div class="col col-lg-6 mb-4 mb-lg-0">
                         <div class="card mb-3" style="border-radius: .5rem;">
                           <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center text-white"
                               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                
+                            
                                 {% if patient.profile_picture %}
                                     <img src="{{ patient.profile_picture.url }}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
                                 {% else %}
@@ -45,36 +42,33 @@
                                     <p class="text-muted">{{ patient.phone_number }}</p>
                                   </div>
                                 </div>
-                                        <h6>Specific Information:</h6>
-                                            <hr class="mt-0 mb-4">
-                                            <div class="row pt-1">
-                                              <div class="col-6 mb-3">
-                                                <h6>Reasons for Seeking Therapy:</h6>
-                                                <p class="text-muted">{{ patient.reasons_for_therapy }}</p>
-                                              </div>
-                                              <div class="col-6 mb-3">
-                                                <h6>Previous Speech Therapy History:</h6>
-                                                <p class="text-muted">{{ patient.previous_speech_therapy_history }}</p>
-                                              </div>
-                                            </div>
-                                      <h6>Additional Notes/Comments:</h6>
-                                            <hr class="mt-0 mb-4">
-                                            <div class="row pt-1">
-                                              <div class="col-12 mb-3">
-                                                <h6>Notes:</h6>
-                                                <p class="text-muted">{{ patient.additional_notes }}</p>
-                                              </div>
-                                            </div>
+                                  <h6>Specific Information:</h6>
+                                  <hr class="mt-0 mb-4">
+                                  <div class="row pt-1">
+                                      <div class="col-6 mb-3">
+                                          <h6>Reasons for Seeking Therapy:</h6>
+                                          <p class="text-muted">{{ patient.reasons_for_therapy }}</p>
+                                      </div>
+                                      <div class="col-6 mb-3">
+                                          <h6>Previous Speech Therapy History:</h6>
+                                          <p class="text-muted">{{ patient.previous_speech_therapy_history }}</p>
+                                      </div>
+                                  </div>
+                                  <h6>Additional Notes/Comments:</h6>
+                                  <hr class="mt-0 mb-4">
+                                  <div class="row pt-1">
+                                      <div class="col-12 mb-3">
+                                          <h6>Notes:</h6>
+                                          <p class="text-muted">{{ patient.additional_notes }}</p>
+                                      </div>
+                                  </div>
                               </div>
-                            
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                <section
-            {% endfor %}
+                </section>
         </div>
       </div>
     </section>
