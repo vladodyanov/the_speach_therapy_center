@@ -8,4 +8,5 @@ urlpatterns = [
     path('', include('the_speach_therapy_center.web.urls')),
     path('accounts/', include('the_speach_therapy_center.accounts.urls')),
     path('services/', include('the_speach_therapy_center.services.urls')),
+    path('staff/', include('the_speach_therapy_center.staff_panel.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

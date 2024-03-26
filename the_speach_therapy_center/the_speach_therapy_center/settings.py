@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'the_speach_therapy_center.accounts',
     'the_speach_therapy_center.web',
     'the_speach_therapy_center.services',
+    'the_speach_therapy_center.staff_panel',
 ]
 
 MIDDLEWARE = [

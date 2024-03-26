@@ -47,27 +47,27 @@
                     <p class="text-muted">{{ object.phone_number }}</p>
                   </div>
                 </div>
-                  {% if not request.user.is_superuser or not request.user.is_staff %}
+                  {% if not request.user.is_superuser and not request.user.is_staff %}
                       <h6>Specific Information:</h6>
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>Reasons for Seeking Therapy:</h6>
-                    <p class="text-muted">{{ object.reasons_for_therapy }}</p>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h6>Previous Speech Therapy History:</h6>
-                    <p class="text-muted">{{ object.previous_speech_therapy_history }}</p>
-                  </div>
-                </div>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                              <div class="col-6 mb-3">
+                                <h6>Reasons for Seeking Therapy:</h6>
+                                <p class="text-muted">{{ object.reasons_for_therapy }}</p>
+                              </div>
+                              <div class="col-6 mb-3">
+                                <h6>Previous Speech Therapy History:</h6>
+                                <p class="text-muted">{{ object.previous_speech_therapy_history }}</p>
+                              </div>
+                            </div>
                       <h6>Additional Notes/Comments:</h6>
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                  <div class="col-12 mb-3">
-                    <h6>Notes:</h6>
-                    <p class="text-muted">{{ object.additional_notes }}</p>
-                  </div>
-                </div>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                              <div class="col-12 mb-3">
+                                <h6>Notes:</h6>
+                                <p class="text-muted">{{ object.additional_notes }}</p>
+                              </div>
+                            </div>
                   {% endif %}
               
               </div>
