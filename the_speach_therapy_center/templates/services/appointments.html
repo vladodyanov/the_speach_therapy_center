@@ -7,17 +7,11 @@
     <section class="h-auto" style="background-color: #f4f5f7;">
       <div class="container d-flex justify-content-center align-items-center">
         <div class="section-title-registration ">
-            {% if full_name %}
-                    <h2>{{ full_name }}'s Diary: </h2>
-                {% else %}
-                    <h3>{{ user_email }}'s Diary:</h3>
-                {% endif %}
-        
         {% if appointments.count > 0 %}
             {% if appointments.count == 1 %}
-                <h6> You have 1 appointment</h6>
+                <h4> You have 1 appointment</h4>
             {% else %}  
-                <h6> You have {{ appointments.count }} appointments:</h6>
+                <h4> You have {{ appointments.count }} appointments:</h4>
             {% endif %}   
             
             {% for appointment in appointments %}
@@ -32,7 +26,7 @@
                 </div>
             {% endfor %}         
         {% else %}    
-            <h5>You don't have appointments !</h5>
+            <h4>You don't have appointments !</h4>
         {% endif %}
         </div>
       </div>

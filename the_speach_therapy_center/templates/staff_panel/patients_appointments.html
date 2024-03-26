@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block main_content %}
+    <section class="h-auto" style="background-color: #f4f5f7;">
+        <div class="container">
+            <div class="section-title-registration">
+                <h3>Patient appointments:</h3>
+                <div class="search-container">
+                    <input class = "form-control-sm mb-2" type="text" id="searchInput" placeholder="Search...">
+                </div>
+                {% if appointments.count > 0 %}
+                    {% if appointments.count == 1 %}
+                        <h6> You have 1 appointment</h6>
+                    {% else %}  
+                        <h6> You have {{ appointments.count }} appointments:</h6>
+                    {% endif %}   
+            
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Day</th>  
+                                <th scope="col">Time</th>
+                                <th scope="col">Patient id</th>
+                                <th scope="col">Service</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientTableBody">
+                            {% for appointment in appointments %}
+                                    <tr>
+                                        <td>{{ appointment.day }}</td>      
+                                        <td>{{ appointment.time }}</td>
+                                        {% if appointment.user.name%}
+                                            <td>{{ appointment.user }}</td>
+                                        {% else %}
+                                            <td>{{ appointment.user }}</td>
+                                        {% endif %}
+                                        
+                                        <td>{{ appointment.service }}</td>
+                                    </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                {% else %}    
+                    <h5>There are no appointments !</h5>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    
+        $(document).ready(function() {
+            $("#searchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#patientTableBody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
+
+                    

@@ -10,7 +10,8 @@ from django.contrib import messages
 
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
-from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, check_edit_time
+from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
+    check_edit_time
 
 
 def getting_started(request):
@@ -153,34 +154,19 @@ def appointment_submit(request):
     })
 
 
-# def userPanel(request):
-#     user = request.user
-#     appointments = Appointment.objects.filter(user=user).order_by('day', 'time')
-#     return render(request, 'userPanel.html', {
-#         'user': user,
-#         'appointments': appointments,
-#     })
-
-
 def appointment_update(request, id):
     appointment = Appointment.objects.get(pk=id)
     user_date_picked = appointment.day
-    # Copy  booking:
     today = datetime.today()
     min_date = today.strftime('%Y-%m-%d')
-
-    # 24h if statement in template:
     delta24 = user_date_picked.strftime('%Y-%m-%d') >= (today + timedelta(days=1)).strftime('%Y-%m-%d')
-    # Calling 'valid_weekday' Function to Loop days  in the next 21 days:
     weekdays = valid_weekday(22)
-    # Only show the days that are not full:
     validate_weekdays = is_weekday_valid(weekdays)
 
     if request.method == 'POST':
         service = request.POST.get('service')
         day = request.POST.get('day')
 
-        # Store day and service in django session:
         request.session['day'] = day
         request.session['service'] = service
 
@@ -246,7 +232,6 @@ def appointment_update_submit(request, id):
         'id': id,
     })
 
-
 # def staffPanel(request):
 #     today = datetime.today()
 #     min_date = today.strftime('%Y-%m-%d')
@@ -259,5 +244,3 @@ def appointment_update_submit(request, id):
 #     return render(request, 'staffPanel.html', {
 #         'items': items,
 #     })
-
-
