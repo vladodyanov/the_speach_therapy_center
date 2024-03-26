@@ -1,6 +1,4 @@
 from the_speach_therapy_center.accounts.models import Profile
-from django.shortcuts import render
-
 from django.urls import reverse_lazy
 
 from django.views import generic as views
@@ -12,6 +10,7 @@ from django.contrib import messages
 
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
+from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, check_edit_time
 
 
 def getting_started(request):
@@ -262,48 +261,3 @@ def appointment_update_submit(request, id):
 #     })
 
 
-def day_to_weekday(x):
-    z = datetime.strptime(x, "%Y-%m-%d")
-    y = z.strftime('%A')
-    return y
-
-
-def valid_weekday(days):
-    weekdays_list = ['Monday', 'Tuesday', 'Thursday', 'Wednesday', 'Friday']
-    # Loop days you want in the next 21 days:
-    today = datetime.now()
-    weekdays = []
-    for i in range(0, days):
-        x = today + timedelta(days=i)
-        y = x.strftime('%A')
-        if y in weekdays_list:
-            weekdays.append(x.strftime('%Y-%m-%d'))
-    return weekdays
-
-
-def is_weekday_valid(x):
-    validate_weekdays = []
-    for j in x:
-        if Appointment.objects.filter(day=j).count() < 10:
-            validate_weekdays.append(j)
-    return validate_weekdays
-
-
-def check_time(times, day):
-    # Only show the time of the day that has not been selected before:
-    x = []
-    for k in times:
-        if Appointment.objects.filter(day=day, time=k).count() < 1:
-            x.append(k)
-    return x
-
-
-def check_edit_time(times, day, id):
-    # Only show the time of the day that has not been selected before:
-    x = []
-    appointment = Appointment.objects.get(pk=id)
-    time = appointment.time
-    for k in times:
-        if Appointment.objects.filter(day=day, time=k).count() < 1 or time == k:
-            x.append(k)
-    return x
