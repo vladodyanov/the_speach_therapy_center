@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load filters %}
+
+{% block main_content %}
+    <section class="h-auto" style="background-color: #f4f5f7;">
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="section-title-registration ">
+            <h3>Patient records:</h3>
+        
+        {% if patients.count > 0 %}
+            {% if patients.count == 1 %}
+                <h6> There is 1 registered user:</h6>
+            {% else %}  
+                <h6> You have {{ patients.count }}registered  patients:</h6>
+            {% endif %}   
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date joined</th>
+                      <th scope="col">Full name</th>  
+                      <th scope="col">Birthday</th>
+                      <th scope="col">Phone number</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Details</th>  
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        {% for patient in patients %}
+                      <td>{{ patient.user.date_joined}}</td>
+                      <td>{{ patient.full_name}}</td>      
+                      <td>{{ patient.date_of_birth }}</td>
+                      <td>{{ patient.phone_number }}</td>
+                      <td>{{ patient.user.email }}</td>
+                      <td><a href="{% url 'patient_records' %}">Details</a></td>      
+                    </tr>
+                        {% endfor %}
+                  </tbody>
+                </table>
+            
+        {% else %}    
+            <h5>There are no registered patients !</h5>
+        {% endif %}
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+
