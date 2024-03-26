@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from datetime import datetime, timedelta
 from .models import *
 from django.contrib import messages
-
+from django.utils import timezone
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
 from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
@@ -48,11 +48,14 @@ def appointments_page(request):
     profile = Profile.objects.get(user=request.user)
     full_name = profile.full_name
     appointments = Appointment.objects.filter(user=user).order_by('day', 'time')
+    today = datetime.today()
     context = {
         'user_email': user_email,
         'full_name': full_name,
         'appointments': appointments,
+        'today': today,
     }
+
     return render(request, template_name='services/appointments.html', context=context)
 
 

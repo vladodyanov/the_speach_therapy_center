@@ -12,8 +12,11 @@
                 {% else %}
                     <h3>{{ user_email }}'s Diary:</h3>
                 {% endif %}
-        
-        <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
+        {% if questionnaires_count == 1 %}
+            <h6> * you have completed {{ questionnaires_count }} questionnaire</h6>
+        {% else %}
+            <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
+        {% endif %}
                     
         <a href="{% url 'create_questionnaire' %}" class="btn btn-primary rounded-3 p-2">Add questionnaire </a>
         

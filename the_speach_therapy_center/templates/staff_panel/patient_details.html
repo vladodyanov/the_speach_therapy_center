@@ -19,7 +19,7 @@
                                 {% if patient.profile_picture %}
                                     <img src="{{ patient.profile_picture.url }}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
                                 {% else %}
-                                    <img src="{% static 'img/person.png' %}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
+                                    <img src="{% static 'img/default_profile_picture.png' %}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
                                 {% endif %}
                                 
                               <h5>{{ patient.full_name }}</h5>

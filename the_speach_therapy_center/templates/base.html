@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'img/stc_logo.png' %}" rel="icon">
+  <link href="{% static 'img/stc_logo_big.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -60,7 +60,7 @@
     <div class="container d-flex align-items-center">
         <h1 class="logo me-auto">
             <a href="{% url 'index' %}">
-                <img src="{% static 'img/apple-touch-icon.png' %}" alt="The Speech Therapy Center Logo">
+                <img src="{% static 'img/stc_logo_big.png' %}" alt="The Speech Therapy Center Logo">
                 The Speech Therapy Center
             </a>
         </h1>
@@ -93,10 +93,10 @@
             {% endif %}
         <li><a class="nav-link {% if request.path == '/contact/' %}active{% endif %} scrollto" href="{% url 'contact' %}">Contact</a></li>
         </ul>
-        {% if not request.user.is_superuser or not request.user.is_staff %}
+        {% if not request.user.is_superuser and not request.user.is_staff %}
         
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
       <a href="{% url 'make appointment' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
         {% endif %}

@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from the_speach_therapy_center.services.models import Appointment
 from datetime import datetime, timedelta
 from .models import *
@@ -48,3 +50,10 @@ def check_edit_time(times, day, id):
         if Appointment.objects.filter(day=day, time=k).count() < 1 or time == k:
             x.append(k)
     return x
+
+
+# def get_timezone_day(timezone_name):
+#     tz = timezone.timezone(timezone_name)
+#     current_time = timezone.localtime(timezone.now(), tz)
+#     day = current_time.strftime('%A')
+#     return day
