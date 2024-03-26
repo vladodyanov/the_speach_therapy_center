@@ -31,7 +31,7 @@ def questionnaires_page(request):
     user_email = user.email
     profile = Profile.objects.get(user=request.user)
     full_name = profile.full_name
-    questionnaires = UserQuestionnaire.objects.all()
+    questionnaires = UserQuestionnaire.objects.filter(user=user)
     questionnaires_count = len([questionnaire for questionnaire in questionnaires])
     context = {
         'questionnaires': questionnaires,
@@ -137,7 +137,7 @@ def appointment_submit(request):
                                 time=time,
                             )
                             messages.success(request, "Appointment Saved!")
-                            return redirect('index')
+                            return redirect('appointments_page')
                         else:
                             messages.success(request, "The Selected Time Has Been Reserved Before!")
                     else:
