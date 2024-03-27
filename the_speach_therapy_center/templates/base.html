@@ -75,7 +75,7 @@
                         <ul>
                           <li><a href="{% url 'patient_appointments' %}">Patient appointments</a></li>  
                           <li><a href="{% url 'patient_records' %}">Patient records</a></li>
-                          <li><a href="{% url 'patient_records' %}">Notes</a></li>
+                          <li><a href="{% url 'patient_treatment_plans' %}">Patient treatment plans</a></li>
                         </ul>
                 {% else %}
                     <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Getting started</a></li>

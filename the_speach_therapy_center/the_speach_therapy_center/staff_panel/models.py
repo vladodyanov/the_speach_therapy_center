@@ -1,17 +1,20 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 
 from the_speach_therapy_center.accounts.models import Profile
+from the_speach_therapy_center.core.models import UserRelatedEntity
+
+UserModel = get_user_model()
 
 
 class TreatmentPlan(models.Model):
     MAX_PATIENT_NAME_LENGTH = 25
 
-    # patient = models.CharField(
-    #     max_length=MAX_PATIENT_NAME_LENGTH,
-    #     blank=True,
-    #     null=True,
-    # )
+    therapist = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE)
+
     patient = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE)

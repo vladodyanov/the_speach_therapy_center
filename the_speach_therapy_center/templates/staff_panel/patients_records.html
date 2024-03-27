@@ -37,7 +37,8 @@
                                         <td>{{ patient.phone_number }}</td>
                                         <td>{{ patient.user.email }}</td>
                                         <td>{{ patient.user.date_joined}}</td>      
-                                        <td><a href="{% url 'patient_details' pk=patient.pk %}">Details</a></td>      
+                                        <td><a href="{% url 'patient_details' pk=patient.pk %}">Details</a></td>
+                                        
                                     </tr>
                                 {% endif %}
                             {% endfor %}
