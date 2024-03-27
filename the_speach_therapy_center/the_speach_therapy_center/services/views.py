@@ -4,10 +4,10 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
 from django.shortcuts import render, redirect
-from datetime import datetime, timedelta
+from datetime import timedelta
 from .models import *
 from django.contrib import messages
-from django.utils import timezone
+
 
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
@@ -240,15 +240,3 @@ def appointment_update_submit(request, id):
         'id': id,
     })
 
-# def staffPanel(request):
-#     today = datetime.today()
-#     min_date = today.strftime('%Y-%m-%d')
-#     delta_time = today + timedelta(days=21)
-#     str_delta_time = delta_time.strftime('%Y-%m-%d')
-#     max_date = str_delta_time
-#     # Only show the Appointments 21 days from today
-#     items = Appointment.objects.filter(day__range=[min_date, max_date]).order_by('day', 'time')
-# 
-#     return render(request, 'staffPanel.html', {
-#         'items': items,
-#     })

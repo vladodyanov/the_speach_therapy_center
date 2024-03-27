@@ -1,6 +1,7 @@
 from datetime import datetime
-import calendar
 from django.shortcuts import render, get_object_or_404
+from django.views import generic as views
+from django.contrib.auth import mixins as auth_mixin
 
 from the_speach_therapy_center.accounts.models import Profile
 from the_speach_therapy_center.services.models import Appointment
@@ -38,3 +39,18 @@ def patient_appointments(request):
 
     return render(request, 'staff_panel/patients_appointments.html', context=context)
 
+
+class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
+    pass
+
+
+class DetailsTreatmentPlanView(views.DetailView):
+    pass
+
+
+class EditTreatmentPlanView(views.UpdateView):
+    pass
+
+
+class DeleteTreatmentPlanView(views.DeleteView):
+    pass
