@@ -1,3 +1,5 @@
+from datetime import datetime
+import calendar
 from django.shortcuts import render, get_object_or_404
 
 from the_speach_therapy_center.accounts.models import Profile
@@ -23,12 +25,16 @@ def patient_details(request, pk):
 def patient_appointments(request):
     user = request.user
     appointments = Appointment.objects.all().order_by('day', 'time')
+    today = datetime.today()
+    month = today.month
+    day = today.day
+
     context = {
         'user': user,
         'appointments': appointments,
+        'month': month,
+        'day': day,
     }
 
     return render(request, 'staff_panel/patients_appointments.html', context=context)
-
-
 

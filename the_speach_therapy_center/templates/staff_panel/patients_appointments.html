@@ -12,12 +12,6 @@
                     <input class = "form-control-sm mb-2" type="text" id="searchInput" placeholder="Search...">
                 </div>
                 {% if appointments.count > 0 %}
-                    {% if appointments.count == 1 %}
-                        <h6> You have 1 appointment</h6>
-                    {% else %}  
-                        <h6> You have {{ appointments.count }} appointments:</h6>
-                    {% endif %}   
-            
                 <table class="table">
                         <thead>
                             <tr>
@@ -29,6 +23,7 @@
                         </thead>
                         <tbody id="patientTableBody">
                             {% for appointment in appointments %}
+                                {% if month == appointment.day.month and day <= appointment.day.day or month < appointment.day.month%}
                                     <tr>
                                         <td>{{ appointment.day }}</td>      
                                         <td>{{ appointment.time }}</td>
@@ -40,6 +35,7 @@
                                         
                                         <td>{{ appointment.service }}</td>
                                     </tr>
+                                {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
