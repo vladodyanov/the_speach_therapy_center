@@ -12,7 +12,7 @@ from the_speach_therapy_center.core.view_mixins import OwnerRequiredMixin
 class SignInUserView(auth_views.LoginView):
     template_name = 'accounts/signin_user.html'
     redirect_authenticated_user = True
-    success_url = reverse_lazy('getting_started')
+    success_url = reverse_lazy('getting started')
 
 
 class SignUpUserView(views.CreateView):

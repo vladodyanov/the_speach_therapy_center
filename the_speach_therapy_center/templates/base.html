@@ -71,18 +71,18 @@
             <li><a class="nav-link {% if request.path == '/gallery/' %}active{% endif %} scrollto" href="{% url 'gallery' %}">Gallery</a></li>
             {% if request.user.is_authenticated  %}
                 {% if request.user.is_superuser or request.user.is_staff %}
-                    <li class="dropdown"><a href="{% url 'patient_appointments' %}"><span>Patient records</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="{% url 'patient appointments' %}"><span>Patient records</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                          <li><a href="{% url 'patient_appointments' %}">Patient appointments</a></li>  
-                          <li><a href="{% url 'patient_records' %}">Patient profiles</a></li>
-                          <li><a href="{% url 'patient_treatment_plans' %}">Patient treatment plans</a></li>
+                          <li><a href="{% url 'patient appointments' %}">Patient appointments</a></li>
+                          <li><a href="{% url 'patient records' %}">Patient profiles</a></li>
+                          <li><a href="{% url 'patient treatment plans' %}">Patient treatment plans</a></li>
                         </ul>
                 {% else %}
-                    <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting_started' %}">Getting started</a></li>
-                    <li class="dropdown"><a href="{% url 'appointments_page' %}"><span>User Diary</span> <i class="bi bi-chevron-down"></i></a>
+                    <li><a class="nav-link {% if request.path == '/getting_started/' %}active{% endif %} scrollto" href="{% url 'getting started' %}">Getting started</a></li>
+                    <li class="dropdown"><a href="{% url 'appointments page' %}"><span>User Diary</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                          <li><a href="{% url 'appointments_page' %}">Appointments</a></li>
-                          <li><a href="{% url 'questionnaires_page' %}">Questionnaires</a></li>
+                          <li><a href="{% url 'appointments page' %}">Appointments</a></li>
+                          <li><a href="{% url 'questionnaires page' %}">Questionnaires</a></li>
                         </ul>
                 {% endif %}
             <li><a class="nav-link  scrollto" href="{% url 'details profile' pk=request.user.pk %}">Profile</a></li>
@@ -98,7 +98,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
-      <a href="{% url 'make appointment' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="{% url 'appointment create' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
         {% endif %}
     </div>
   </header>

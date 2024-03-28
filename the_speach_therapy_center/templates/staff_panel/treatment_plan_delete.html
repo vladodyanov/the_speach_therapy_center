@@ -10,7 +10,7 @@
             
             <h2>Are you sure you want to delete the treatment plan?</h2>
           
-        <form action ="{% url 'delete_treatment_plan' pk=object.pk %}"  method="post">
+        <form action ="{% url 'treatment plan delete' pk=object.pk %}" method="post">
             
         <input class="btn btn-primary" type="submit" value="Yes">
             {% csrf_token %}

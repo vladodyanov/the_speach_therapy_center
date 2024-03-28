@@ -18,7 +18,7 @@
             <h6> * you have completed {{ questionnaires_count }} questionnaires</h6>
         {% endif %}
                     
-        <a href="{% url 'create_questionnaire' %}" class="btn btn-primary rounded-3 p-2">Add questionnaire </a>
+        <a href="{% url 'questionnaire create' %}" class="btn btn-primary rounded-3 p-2">Add questionnaire </a>
         
         </div>
       </div>
@@ -41,8 +41,8 @@
                         <p class="card-text">Notes: {{ questionnaire.comments }}</p>
                     
                     <div class="d-grid gap-2 d-md-block">
-                        <a href="{% url 'edit_questionnaire' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Update</a>
-                        <a href="{% url 'delete_questionnaire' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Delete</a>
+                        <a href="{% url 'questionnaire edit' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Update</a>
+                        <a href="{% url 'questionnaire delete' pk=questionnaire.pk %}" class="btn btn-primary" type="button">Delete</a>
                     </div>
                     
                 </div>

@@ -59,7 +59,7 @@ class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
     model = TreatmentPlan
     form_class = CreateTreatmentPlanForm
     template_name = 'staff_panel/treatment_plan_create.html'
-    success_url = reverse_lazy('patient_treatment_plans')
+    success_url = reverse_lazy('patient treatment plans')
 
     def form_valid(self, form):
         form.instance.therapist = self.request.user
@@ -75,10 +75,10 @@ class EditTreatmentPlanView(views.UpdateView):
     model = TreatmentPlan
     form_class = EditTreatmentPlanForm
     template_name = 'staff_panel/treatment_plan_edit.html'
-    success_url = reverse_lazy('details_treatment_plan',)
+    success_url = reverse_lazy('treatment plan details', )
 
 
 class DeleteTreatmentPlanView(views.DeleteView):
     queryset = TreatmentPlan.objects.all()
     template_name = 'staff_panel/treatment_plan_delete.html'
-    success_url = reverse_lazy('patient_treatment_plans')
+    success_url = reverse_lazy('patient treatment plans')

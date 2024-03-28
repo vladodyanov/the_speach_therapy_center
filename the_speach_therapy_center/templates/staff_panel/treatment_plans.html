@@ -8,7 +8,7 @@
         <div class="container">
             <div class="section-title-registration">
                 <h3>Available Treatment Plans:</h3>
-                    <a href="{% url 'create_treatment_plan' %}" class="appointment-btn mb-3">Add new treatment plan</a>
+                    <a href="{% url 'treatment plan create' %}" class="appointment-btn mb-3">Add new treatment plan</a>
                 
                 {% if treatment_plans.count > 0 %}
                 <table class="table">
@@ -26,7 +26,7 @@
                                     <td>{{ treatment_plan.patient.user.email }}</td>
                                     <td>{{ treatment_plan.patient.full_name}}</td>
                                     <td>{{ treatment_plan.created_at }}</td>
-                                    <td><a href="{% url 'details_treatment_plan' pk=treatment_plan.pk %}">Details</a></td>
+                                    <td><a href="{% url 'treatment plan details' pk=treatment_plan.pk %}">Details</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

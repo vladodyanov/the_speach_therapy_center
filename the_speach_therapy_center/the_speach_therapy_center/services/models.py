@@ -92,7 +92,7 @@ class UserQuestionnaire(UserRelatedEntity, models.Model):
         verbose_name="Have you ever had difficulty understanding or following conversations?"
     )
 
-    comments = models.CharField(
+    comments = models.TextField(
         max_length=MAX_COMMENTS_LENGTH,
         null=False,
         blank=False,

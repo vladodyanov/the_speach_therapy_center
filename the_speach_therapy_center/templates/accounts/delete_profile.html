@@ -4,19 +4,17 @@
 
 {% block main_content %}
     
-    
-    
     <section id="appointment" class="appointment section-bg">
       <div class="container">
         <div class="section-title-registration">
           <h2>Are you sure you want to delete your profile?</h2>
           
-        <form action ="{% url 'delete profile' pk=object.pk %}"  method="post">
+            <form action ="{% url 'delete profile' pk=object.pk %}"  method="post">
             
-        <input class="btn btn-primary" type="submit" value="Yes">
-            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Yes">
+                {% csrf_token %}
             
-        </form>
+            </form>
         </div>
       </div>
 {% endblock %}

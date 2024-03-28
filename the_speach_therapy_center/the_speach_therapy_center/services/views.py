@@ -67,7 +67,7 @@ def appointments_page(request):
 class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
     form_class = CreateQuestionnaireForm
     template_name = 'services/questionnaire_create.html'
-    success_url = reverse_lazy('questionnaires_page')
+    success_url = reverse_lazy('questionnaires page')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -79,13 +79,13 @@ class EditQuestionnaireView(views.UpdateView):
     fields = ['question_one', 'question_two', 'question_three', 'question_four',
               'question_five', 'comments', ]
     template_name = 'services/questionnaire_edit.html'
-    success_url = reverse_lazy('questionnaires_page')
+    success_url = reverse_lazy('questionnaires page')
 
 
 class DeleteQuestionnaireView(views.DeleteView):
     queryset = UserQuestionnaire.objects.all()
     template_name = 'services/questionnaire_delete.html'
-    success_url = reverse_lazy('questionnaires_page')
+    success_url = reverse_lazy('questionnaires page')
 
 
 def make_an_appointment(request):
@@ -99,7 +99,7 @@ def make_an_appointment(request):
         day = request.POST.get('day')
         if service is None:
             messages.success(request, "Please Select A Service!")
-            return redirect('make appointment')
+            return redirect('appointment create')
 
         # Store day and service in django session:
         request.session['day'] = day
@@ -145,7 +145,7 @@ def appointment_submit(request):
                                 time=time,
                             )
                             messages.success(request, "Appointment Saved!")
-                            return redirect('appointments_page')
+                            return redirect('appointments page')
                         else:
                             messages.success(request, "The Selected Time Has Been Reserved Before!")
                     else:
@@ -222,7 +222,7 @@ def appointment_update_submit(request, id):
                                 time=time,
                             )
                             messages.success(request, "Appointment Edited!")
-                            return redirect('appointments_page')
+                            return redirect('appointments page')
                         else:
                             messages.success(request, "The Selected Time Has Been Reserved Before!")
                     else:
@@ -233,7 +233,7 @@ def appointment_update_submit(request, id):
                 messages.success(request, "The Selected Date Isn't In The Correct Time Period!")
         else:
             messages.success(request, "Please Select A Service!")
-        return redirect('appointments_page')
+        return redirect('appointments page')
 
     return render(request, 'services/appointment_update_submit.html', {
         'times': hour,
@@ -247,6 +247,6 @@ def delete_appointment(request, id):
     if request.method == 'POST':
         appointment.delete()
         messages.success(request, "Appointment deleted successfully!")
-        return redirect('appointments_page')
+        return redirect('appointments page')
 
     return render(request, 'services/appointment_delete.html', {'appointment': appointment})

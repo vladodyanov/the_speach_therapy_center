@@ -14,46 +14,46 @@
                 {% if patients.count > 0 %}
                     {% if patients.count == 1 %}
                         <h6> There is 1 registered patient:</h6>
-                    {% else %}  
+                    {% else %}
                         <h6> You have {{ patients.count }} registered  patients:</h6>
                     {% endif %}
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Full name</th>  
+                                <th scope="col">Full name</th>
                                 <th scope="col">Birthday</th>
                                 <th scope="col">Phone number</th>
                                 <th scope="col">E-mail</th>
-                                <th scope="col">Date joined</th>  
-                                <th scope="col">Details</th>  
+                                <th scope="col">Date joined</th>
+                                <th scope="col">Details</th>
                             </tr>
                         </thead>
                         <tbody id="patientTableBody">
                             {% for patient in patients %}
                                 {% if not patient.user.is_staff and not patient.user.is_superuser %}
                                     <tr>
-                                        <td>{{ patient.full_name}}</td>      
+                                        <td>{{ patient.full_name}}</td>
                                         <td>{{ patient.date_of_birth }}</td>
                                         <td>{{ patient.phone_number }}</td>
                                         <td>{{ patient.user.email }}</td>
-                                        <td>{{ patient.user.date_joined}}</td>      
-                                        <td><a href="{% url 'patient_details' pk=patient.pk %}">Details</a></td>
-                                        
+                                        <td>{{ patient.user.date_joined}}</td>
+                                        <td><a href="{% url 'patient details' pk=patient.pk %}">Details</a></td>
+
                                     </tr>
                                 {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
-                {% else %}    
+                {% else %}
                     <h5>There are no registered patients !</h5>
                 {% endif %}
             </div>
         </div>
     </section>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    
+
         $(document).ready(function() {
             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();

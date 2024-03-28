@@ -1850,7 +1850,7 @@ background: linear-gradient(to right bottom, rgb(101, 246, 234), rgb(10, 27, 129
 /* Center the form */
 .user-update-form {
     width: 50%;
-    min-width: 300px;
+    min-width: 200px;
     max-width: 300px;
     text-align: start;
     margin-top: 20px;
@@ -1861,6 +1861,10 @@ background: linear-gradient(to right bottom, rgb(101, 246, 234), rgb(10, 27, 129
   font-weight: bold;
 }
 
+.user-update-form textarea {
+    width: 100px; /* Full width */
+    height: 150px; /* Custom height */
+}
 
 
 /* Style form fields */
