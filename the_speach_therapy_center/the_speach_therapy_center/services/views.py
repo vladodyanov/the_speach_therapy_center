@@ -13,6 +13,7 @@ from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
 from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
     check_edit_time
+from ..staff_panel.models import TreatmentPlan
 
 
 def getting_started(request):
@@ -46,7 +47,7 @@ def questionnaires_page(request):
 def appointments_page(request):
     user = request.user
     user_email = user.email
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.get(user=user)
     full_name = profile.full_name
     appointments = Appointment.objects.filter(user=user).order_by('day', 'time')
     today = datetime.today()

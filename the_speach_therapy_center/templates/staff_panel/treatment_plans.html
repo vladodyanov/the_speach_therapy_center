@@ -18,7 +18,6 @@
                                 <th scope="col">Patient name</th>
                                 <th scope="col">Date created</th>
                                 <th scope="col">Details</th>
-                                
                             </tr>
                         </thead>
                         <tbody id="patientTableBody">
@@ -27,7 +26,7 @@
                                     <td>{{ treatment_plan.patient.user.email }}</td>
                                     <td>{{ treatment_plan.patient.full_name}}</td>
                                     <td>{{ treatment_plan.created_at }}</td>
-                                    <td><a href="#">Details</a></td>
+                                    <td><a href="{% url 'details_treatment_plan' pk=treatment_plan.pk %}">Details</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

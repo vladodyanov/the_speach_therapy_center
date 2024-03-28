@@ -5,9 +5,8 @@ from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
 
 from the_speach_therapy_center.accounts.models import Profile
-from the_speach_therapy_center.core.view_mixins import OwnerRequiredMixin
 from the_speach_therapy_center.services.models import Appointment
-from the_speach_therapy_center.staff_panel.forms import CreateTreatmentPlanForm
+from the_speach_therapy_center.staff_panel.forms import CreateTreatmentPlanForm, EditTreatmentPlanForm
 from the_speach_therapy_center.staff_panel.models import TreatmentPlan
 
 
@@ -60,25 +59,23 @@ class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
     model = TreatmentPlan
     form_class = CreateTreatmentPlanForm
     template_name = 'staff_panel/treatment_plan_create.html'
-    success_url = reverse_lazy('patient_records')
+    success_url = reverse_lazy('patient_treatment_plans')
 
     def form_valid(self, form):
         form.instance.therapist = self.request.user
         return super().form_valid(form)
 
 
-class DetailsTreatmentPlanView(OwnerRequiredMixin, views.DetailView):
-    queryset = TreatmentPlan.objects \
-        .prefetch_related('user') \
-        .all()
+class DetailsTreatmentPlanView(views.DetailView):
+    queryset = TreatmentPlan.objects.all()
     template_name = "staff_panel/treatment_plan_details.html"
 
 
 class EditTreatmentPlanView(views.UpdateView):
-    queryset = TreatmentPlan.objects.all()
-    fields = ['patient', 'goals', 'progress_notes', 'next_steps', 'is_completed', ]
+    model = TreatmentPlan
+    form_class = EditTreatmentPlanForm
     template_name = 'staff_panel/treatment_plan_edit.html'
-    success_url = reverse_lazy('patient_treatment_plans')
+    success_url = reverse_lazy('details_treatment_plan',)
 
 
 class DeleteTreatmentPlanView(views.DeleteView):
