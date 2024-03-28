@@ -3,11 +3,10 @@ from django.urls import reverse_lazy
 
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import timedelta
 from .models import *
 from django.contrib import messages
-
 
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
@@ -59,7 +58,7 @@ def appointments_page(request):
         'appointments': appointments,
         'month': month,
         'day': day,
-        'today':today,
+        'today': today,
     }
 
     return render(request, template_name='services/appointments.html', context=context)
@@ -241,3 +240,13 @@ def appointment_update_submit(request, id):
         'id': id,
     })
 
+
+def delete_appointment(request, id):
+    appointment = get_object_or_404(Appointment, pk=id)
+
+    if request.method == 'POST':
+        appointment.delete()
+        messages.success(request, "Appointment deleted successfully!")
+        return redirect('appointments_page')
+
+    return render(request, 'services/appointment_delete.html', {'appointment': appointment})
