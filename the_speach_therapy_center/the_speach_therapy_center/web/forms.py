@@ -10,6 +10,6 @@ class ContactForm(forms.Form):
 
     email = forms.EmailField()
 
-    content = forms.CharField(
+    message = forms.CharField(
         widget=forms.Textarea
     )

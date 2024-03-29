@@ -4,47 +4,25 @@
 
 {% block main_content %}
  <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
+    <section class="h-auto" style="background-color: #f4f5f7;">
+      <div class="container  card bg-light mb-3 " style="max-width: 60rem;">
+        <div class="section-title-registration">
           <h2>Contact</h2>
-          <p>Welcome to The Speech Therapy Center's Contact Page – your gateway to seamless communication and personalized assistance. We understand that reaching out for support or information is the first step towards unlocking the potential for improved communication and enhanced quality of life.</p>
+          <p>Welcome to The Speech Therapy Center's Contact Page – your gateway to seamless 
+              communication and personalized assistance. </p>
+          <form method="post" action="{% url 'contact' %}" class="user-update-form">
+            {{ form.as_p }}
+            
+            <button class="btn btn-primary" type="submit">Submit</button>
+            {% csrf_token %}
+        </form>
         </div>
       </div>
+    </section>
+        
+        
 
       
 
-      <div class="container">
-        <div class="row mt-5">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>98 "Peyo Yavorov" str., Blagoevgrad, Bulgaria</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>malcheva_sonia@abv.bg</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+35988 959 3098</p>
-              </div>
-
-            </div>
-
-          </div>
-            
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+      
 {% endblock %}
