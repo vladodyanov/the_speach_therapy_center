@@ -10,9 +10,8 @@ from django.contrib import messages
 
 from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
-from the_speach_therapy_center.services.validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
+from the_speach_therapy_center.services.appointment_validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
     check_edit_time
-from ..staff_panel.models import TreatmentPlan
 
 
 def getting_started(request):
@@ -89,9 +88,7 @@ class DeleteQuestionnaireView(views.DeleteView):
 
 
 def make_an_appointment(request):
-    # Calling 'valid_weekday' Function to Loop days you want in the next 21 days:
     weekdays = valid_weekday(22)
-    # Only show the days that are not full:
     validate_weekdays = is_weekday_valid(weekdays)
 
     if request.method == 'POST':
@@ -101,7 +98,6 @@ def make_an_appointment(request):
             messages.success(request, "Please Select A Service!")
             return redirect('appointment create')
 
-        # Store day and service in django session:
         request.session['day'] = day
         request.session['service'] = service
         return redirect('appointment submit')
@@ -123,11 +119,9 @@ def appointment_submit(request):
     str_delta_time = delta_time.strftime('%Y-%m-%d')
     max_date = str_delta_time
 
-    # Get stored data from django session:
     day = request.session.get('day')
     service = request.session.get('service')
 
-    # Only show the time of the day that has not been selected before:
     hour = check_time(times, day)
     if request.method == 'POST':
         time = request.POST.get("time")
@@ -135,23 +129,20 @@ def appointment_submit(request):
 
         if service is not None:
             if max_date >= day >= min_date:
-                if date != 'Sunday' or date != 'Saturday':
-                    if Appointment.objects.filter(day=day).count() < 11:
-                        if Appointment.objects.filter(day=day, time=time).count() < 1:
-                            appointment_form = Appointment.objects.get_or_create(
-                                user=user,
-                                service=service,
-                                day=day,
-                                time=time,
-                            )
-                            messages.success(request, "Appointment Saved!")
-                            return redirect('appointments page')
-                        else:
-                            messages.success(request, "The Selected Time Has Been Reserved Before!")
+                if Appointment.objects.filter(day=day).count() < 11:
+                    if Appointment.objects.filter(day=day, time=time).count() < 1:
+                        appointment_form = Appointment.objects.get_or_create(
+                            user=user,
+                            service=service,
+                            day=day,
+                            time=time,
+                        )
+                        messages.success(request, "Appointment Saved!")
+                        return redirect('appointments page')
                     else:
-                        messages.success(request, "The Selected Day Is Full!")
+                        messages.success(request, "The Selected Time Has Been Reserved Before!")
                 else:
-                    messages.success(request, "The Selected Date Is Incorrect")
+                    messages.success(request, "The Selected Day Is Full!")
             else:
                 messages.success(request, "The Selected Date Isn't In The Correct Time Period!")
         else:
