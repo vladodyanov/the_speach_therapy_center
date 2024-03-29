@@ -73,8 +73,8 @@
                 {% if request.user.is_superuser or request.user.is_staff %}
                     <li class="dropdown"><a href="{% url 'patient appointments' %}"><span>Patient records</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                          <li><a href="{% url 'patient appointments' %}">Patient appointments</a></li>
-                          <li><a href="{% url 'patient records' %}">Patient profiles</a></li>
+                          <li><a href="{% url 'patient records' %}">Registered patients</a></li>
+                          <li><a href="{% url 'patient appointments' %}">Patient appointments</a></li>  
                           <li><a href="{% url 'patient treatment plans' %}">Patient treatment plans</a></li>
                         </ul>
                 {% else %}
