@@ -11,10 +11,6 @@ UserModel = get_user_model()
 class TreatmentPlan(models.Model):
     MAX_PATIENT_NAME_LENGTH = 25
 
-    # therapist = models.ForeignKey(
-    #     UserModel,
-    #     on_delete=models.CASCADE)
-
     patient = models.OneToOneField(
         Profile,
         on_delete=models.CASCADE)

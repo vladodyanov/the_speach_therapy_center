@@ -15,7 +15,7 @@
                             <p class="card-text"><strong>Goals:</strong> {{ object.goals}}</p>
                             <p class="card-text"><strong>Progress notes:</strong> {{ object.progress_notes}}</p>
                             <p class="card-text"><strong>Next steps:</strong> {{ object.next_steps}}</p>
-                            <p class="card-text"><strong>Status ot treatment plan:</strong> {{ object.is_completed}}</p>
+                            <p class="card-text"><strong>Status of the treatment plan:</strong> {{ object.is_completed}}</p>
                         <div class="d-grid gap-2 d-md-block">
                             <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan edit' pk=object.pk %}">Update </a>
                             <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan delete' pk=object.pk %}">Delete </a>
