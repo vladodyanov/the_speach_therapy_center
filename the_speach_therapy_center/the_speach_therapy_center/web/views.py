@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from templates.web.forms import ContactForm
+
 
 def index(request):
     context = {}
@@ -17,7 +19,10 @@ def location(request):
 
 
 def contact(request):
-    context = {}
+    form = ContactForm()
+    context = {
+        'form': form,
+    }
     return render(request, template_name='web/contact.html', context=context)
 
 
