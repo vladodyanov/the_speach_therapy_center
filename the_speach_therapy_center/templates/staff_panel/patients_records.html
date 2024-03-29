@@ -7,7 +7,7 @@
     <section class="h-auto" style="background-color: #f4f5f7;">
         <div class="container">
             <div class="section-title-registration">
-                <h3>Registered patient profiles:</h3>
+                <h3>Registered patients</h3>
                 <div class="search-container">
                     <input class = "form-control-sm mb-2" type="text" id="searchInput" placeholder="Search...">
                 </div>
@@ -38,7 +38,6 @@
                                         <td>{{ patient.user.email }}</td>
                                         <td>{{ patient.user.date_joined}}</td>
                                         <td><a href="{% url 'patient details' pk=patient.pk %}">Details</a></td>
-
                                     </tr>
                                 {% endif %}
                             {% endfor %}
