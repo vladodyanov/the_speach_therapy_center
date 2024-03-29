@@ -26,10 +26,10 @@ def contact(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             send_mail(
-                'Contact Form Submission',
+                'Message from the Speach Therapy Center',
                 f'Name: {name}\nEmail: {email}\nMessage: {message}',
                 email,
-                ['vdyanov@me.com'],
+                ['bevintage83@gmail.com'],
                 fail_silently=False,
             )
             return render(request, 'web/contact_thank_you.html')
