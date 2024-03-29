@@ -91,7 +91,11 @@
             <li><a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %} scrollto" href="{% url 'signup user' %}">Registration</a></li>
             <li><a class="nav-link {% if request.path == '/accounts/signin/' %}active{% endif %} scrollto" href="{% url 'signin user' %}">Login</a></li>
             {% endif %}
-        <li><a class="nav-link {% if request.path == '/contact/' %}active{% endif %} scrollto" href="{% url 'contact' %}">Contact</a></li>
+        <li class="dropdown"><a href="{% url 'contact' %}"><span>Contact us</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                          <li><a href="{% url 'contact' %}">Send us a message</a></li>
+                          <li><a href="{% url 'location' %}">Location</a></li>
+                        </ul>
         </ul>
         {% if not request.user.is_superuser and not request.user.is_staff %}
         
