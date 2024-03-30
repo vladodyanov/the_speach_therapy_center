@@ -35,10 +35,10 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 
 ## Features
-- Functionality without login credentials : information about the center, contact and location information, gallery.
+- Functionality without login credentials : information about the center, contact form and location information, gallery.
 - Functionality with login credentials:
-     - for patients - Patients can make appointments and update them. After each session they can fill patient diary with build in questionnaire and monitor their progress. All apointments are visible in the User diary section via dropbowns.
-     - for staff - Terapists can create treatment plans,  view appointments and patient profiles in the app.
+     - for patients - Patients can make appointments and update them. After each session they can fill patient diary with build in questionnaire and monitor their progress. Patient appointments are visible in the User diary section via dropbowns (24h before the appointemnt patient can upate or delete the appointment).
+     - for staff - Terapists can create, update, delete treatment plans,  view appointments and patient profiles in the app.
 
 ## Screenshots
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot1.jpg" />
@@ -61,6 +61,14 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot11.jpg" />
 
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot12.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot13.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot14.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot15.jpg" />
+
 ## Setup
 TBA
 
@@ -72,7 +80,7 @@ Project is: in progress
 
 ## Room for Improvement
 To do:
-- Make an appointment functionality.
+- Install and setup Celery and Celery Beat to clean automatically  outdated appointments from the database .
 
 ## Acknowledgements
 TBA
