@@ -11,7 +11,11 @@ class CreateTreatmentPlanForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['patient'].queryset = Profile.objects.exclude(user__is_staff=True)
+        self.fields['patient'].queryset = Profile.objects.exclude(
+            user__is_staff=True
+        ).exclude(
+            user_id__in=TreatmentPlan.objects.values_list('patient_id', flat=True)
+        )
         self.fields['patient'].label_from_instance = lambda obj: obj.full_name or obj.user.email
 
 
