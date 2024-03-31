@@ -6,7 +6,7 @@ class ContactForm(forms.Form):
 
     name = forms.CharField(
         max_length=MAX_NAME_LENGTH,
-        widget = forms.TextInput(
+        widget=forms.TextInput(
             attrs={'placeholder': 'Please enter your name...'}),
     )
 

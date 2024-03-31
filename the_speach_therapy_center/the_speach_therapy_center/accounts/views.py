@@ -81,4 +81,3 @@ class ProfileDeleteView(views.DeleteView):
         if request.user.is_authenticated:
             logout(request)
         return response
-

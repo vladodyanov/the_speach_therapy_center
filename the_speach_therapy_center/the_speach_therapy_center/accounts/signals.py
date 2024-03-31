@@ -12,5 +12,4 @@ def user_created(sender, instance, created, **kwargs):
 
     if not created:
         return
-
     Profile.objects.create(user=instance)
