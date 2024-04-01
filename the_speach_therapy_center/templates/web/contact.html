@@ -3,26 +3,18 @@
 {% load static %}
 
 {% block main_content %}
- 
-    <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container  card bg-light mb-3 " style="max-width: 45rem;">
-        <div class="section-title-registration">
-          <h2>Leave us a message</h2>
-          <p>Welcome to The Speech Therapy Center's Contact Page – your gateway to seamless 
-              communication and personalized assistance. </p>
-          <form method="post" action="{% url 'contact' %}" class="user-update-form mx-lg-5">
-            {{ form.as_p }}
-            
-            <button class="btn btn-primary" type="submit">Submit</button>
-            {% csrf_token %}
-        </form>
-        </div>
-      </div>
-    </section>
+<section class="h-auto" style="background-color: #f4f5f7;">
+  <div class="container card bg-light mb-3" style="max-width: 45rem;">
+    <div class="section-title-registration">
+      <h2>Leave us a message</h2>
+      <p>Welcome to The Speech Therapy Center's Contact Page – your gateway to seamless communication and personalized assistance.</p>
+      <form method="post" action="{% url 'contact' %}" class="user-update-form mx-lg-5">
+        {{ form.as_p }}
         
-        
-
-      
-
-      
+        <button class="btn btn-primary" type="submit">Submit</button>
+        {% csrf_token %}
+      </form>
+    </div>
+  </div>
+</section>
 {% endblock %}

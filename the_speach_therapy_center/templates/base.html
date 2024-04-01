@@ -28,19 +28,11 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: The Speach Therapy Center
-  * Updated: Jan 29 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/The Speach Therapy Center-free-medical-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    
 </head>
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
@@ -55,7 +47,7 @@
     </div>
   </div>
 
-  <!-- ======= Header ======= -->
+ 
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
         <h1 class="logo me-auto">
@@ -91,12 +83,13 @@
             <li><a class="nav-link {% if request.path == '/accounts/signup/' %}active{% endif %} scrollto" href="{% url 'signup user' %}">Registration</a></li>
             <li><a class="nav-link {% if request.path == '/accounts/signin/' %}active{% endif %} scrollto" href="{% url 'signin user' %}">Login</a></li>
             {% endif %}
-        <li class="dropdown"><a href="{% url 'contact' %}"><span>Contact us</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                          <li><a href="{% url 'contact' %}">Leave us a message</a></li>
-                          <li><a href="{% url 'location' %}">Location</a></li>
-                        </ul>
+            <li class="dropdown"><a href="{% url 'contact' %}"><span>Contact us</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a href="{% url 'contact' %}">Leave us a message</a></li>
+                    <li><a href="{% url 'location' %}">Location</a></li>
+                </ul>
         </ul>
+      
         {% if not request.user.is_superuser and not request.user.is_staff %}
         
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -109,20 +102,14 @@
 
 {% block main_content %}
 {% endblock %}
-
-  <!-- ======= Footer ======= -->
+  
   <footer id="footer">
-
     <div class="container d-md-flex py-4">
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
           &copy; Copyright <strong><span>The Speach Therapy Center</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/The Speach Therapy Center-free-medical-bootstrap-theme/ -->
           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
@@ -131,7 +118,7 @@
         <a href=https://www.instagram.com/sonia_tomanova_speech_therapy/?fbclid=IwAR35dm7DP44woWx5YLt_oy9dQH5FZEVT0ldBb2sQTREgUNNVzPt5Ftzdxy0" class="instagram"><i class="bx bxl-instagram"></i></a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

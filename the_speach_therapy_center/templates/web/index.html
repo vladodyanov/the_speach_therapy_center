@@ -3,63 +3,56 @@
 {% load static %}
 
 {% block main_content %}
+<section id="hero" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center flex-wrap">
+    <h1>Welcome to The Speech Therapy Center</h1>
+    <a href="{% url 'about' %}" class="btn-get-started scrollto">Sonya Tomanova</a>
+  </div>
+</section>
 
-   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center flex-wrap">
-      <h1>Welcome to The Speach Therapy Center</h1>
-      <a href="{% url 'about' %}" class="btn-get-started scrollto">Sonya Tomanova</a>
-    </div>
-  </section><!-- End Hero -->
+<main id="main">
 
-  <main id="main">
-
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Why Choose The Speach Therapy Center?</h3>
-              <p>
-                Choosing The Speech Therapy Center offers numerous benefits for both patients and staff. We will provide you with expert care, personalized attention, and a commitment to excellence in speech therapy services.
-              </p>
-              <div class="text-center">
-                <a href="{% url 'about' %}" class="more-btn">Learn More about us <i class="bx bx-chevron-right"></i></a>
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="content">
+            <h3>Why Choose The Speech Therapy Center?</h3>
+            <p>Choosing The Speech Therapy Center offers numerous benefits for both patients and staff. We will provide you with expert care, personalized attention, and a commitment to excellence in speech therapy services.</p>
+            <div class="text-center">
+              <a href="{% url 'about' %}" class="more-btn">Learn More about us <i class="bx bx-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="icon-boxes d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Expertise and Experience</h4>
+                  <p>Our center is staffed with highly qualified speech therapists who have extensive experience working with pediatric patients, ensuring that every patient receives personalized and effective treatment.</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Patient-Centered Approach</h4>
+                  <p>At The Speech Therapy Center, we prioritize the needs and goals of the patients. Our therapists take a holistic approach to therapy, considering not only speech but also factors such as language, social interaction, and cognitive abilities.</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-images"></i>
+                  <h4>Comprehensive Services</h4>
+                  <p>Whether you're seeking therapy for your child's speech delay or need assistance with adult speech disorders or occupational speech services, we offer a comprehensive range of services to meet your needs.</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Expertise and Experience</h4>
-                    <p>Our center is staffed with highly qualified speech therapist who have extensive experience working with  pediatric  patients, ensuring that every patient receives personalized and effective treatment.</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Patient-Centered Approach</h4>
-                    <p>At The Speech Therapy Center, we prioritize the needs and goals of the patients. Our therapist take a holistic approach to therapy, considering not only speech but also factors such as language, social interaction, and cognitive abilities. We strive to create a supportive and nurturing environment where patients feel empowered to achieve their communication goals.</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Comprehensive Services</h4>
-                    <p>Whether you're seeking therapy for your child's speech delay or need assistance with adult speech disorders or occupational speech services, we offer a comprehensive range of services to meet your needs. Our therapy programs are tailored to address specific speech challenges and promote overall communication skills development.</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
         </div>
-
       </div>
-    </section><!-- End Why Us Section -->
+    </div>
+  </section>
 
 {% endblock %}

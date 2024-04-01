@@ -8,13 +8,12 @@
       <div class="container">
         <div class="section-title-registration">
           <h2>Are you sure you want to delete your profile?</h2>
-          
-            <form action ="{% url 'delete profile' pk=object.pk %}"  method="post">
-            
+          <p>This action cannot be undone. All your data will be lost.</p>
+          <form action="{% url 'delete profile' pk=object.pk %}" method="post">
             <input class="btn btn-primary" type="submit" value="Yes">
-                {% csrf_token %}
-            
-            </form>
+            {% csrf_token %}
+          </form>
         </div>
       </div>
+    </section>
 {% endblock %}
