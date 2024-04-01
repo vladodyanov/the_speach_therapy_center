@@ -75,7 +75,7 @@ class EditTreatmentPlanView(views.UpdateView):
     model = TreatmentPlan
     form_class = EditTreatmentPlanForm
     template_name = 'staff_panel/treatment_plan_edit.html'
-    success_url = reverse_lazy('treatment plan details', )
+    success_url = reverse_lazy('patient treatment plans')
 
 
 class DeleteTreatmentPlanView(views.DeleteView):

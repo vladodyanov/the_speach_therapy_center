@@ -16,7 +16,7 @@
                             <tr>
                                 <th scope="col">Day</th>
                                 <th scope="col">Time</th>
-                                <th scope="col">Patient id</th>
+                                <th scope="col">Patient</th>
                                 <th scope="col">Service</th>
                             </tr>
                         </thead>
@@ -26,7 +26,11 @@
                                     <tr>
                                         <td>{{ appointment.day }}</td>
                                         <td>{{ appointment.time }}</td>
-                                        <td>{{ appointment.user.name if appointment.user.name else appointment.user }}</td>
+                                        {% if appointment.user.profile.full_name %}
+                                            <td>{{ appointment.user.profile.full_name }}</td>
+                                        {% else %}
+                                            <td>{{ appointment.user }}</td>
+                                        {% endif %}   
                                         <td>{{ appointment.service }}</td>
                                     </tr>
                                 {% endif %}
