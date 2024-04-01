@@ -11,7 +11,6 @@ The Speech Therapy Center is a comprehensive web application designed to facilit
 * [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 
 
@@ -35,10 +34,13 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 
 ## Features
-- Functionality without login credentials : information about the center, contact form and location information, gallery.
+- Functionality without login credentials:
+  - information about the center;
+  - contact form and location information;
+  - gallery.
 - Functionality with login credentials:
-     - for patients - Patients can make appointments and update them. After each session they can fill patient diary with build in questionnaire and monitor their progress. Patient appointments are visible in the User diary section via dropbowns (24h before the appointemnt patient can upate or delete the appointment).
-     - for staff - Terapists can create, update, delete treatment plans,  view appointments and patient profiles in the app.
+     - for patients - Patients can update the profile information. They also can create, update, delete appointments (24h before the appointemnt patient can upate or delete the appointment). After each session they can fill or update patient diary with build in questionnaire and monitor their progress. Patient appointments are visible in the User diary section via dropbowns. 
+     - for staff - Terapist can create, update, delete treatment plans,  view patient appointments and  profiles in the app.
 
 ## Screenshots
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot1.jpg" />
@@ -70,27 +72,37 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot15.jpg" />
 
 ## Setup
-TBA
+To set up the Speech Therapy Center locally, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/vladodyanov/the_speach_therapy_center.git
+2. Navigate to the project directory:
+-cd the_speach_therapy_center 
+3. Install the required dependencies:
+-pip install -r requirements.txt 
+4. Apply migrations:
+-python manage.py migrate 
+5. Create a superuser to access the admin interface:
+-python manage.py createsuperuser 
+6. Run the development server:
+-python manage.py runserver 
+7. Access the application at http://localhost:8000 in your web browser.
+
 
 ## Usage
-TBA
+To use the Speech Therapy Center, follow these steps:
+1. Register as a new user or log in if you already have an account.
+2. Navigate through the different sections of the application, such as scheduling appointments, updating profile information, and viewing treatment plans.
+3. Utilize the features available based on your role, whether you are a patient or a staff member.
+4. Explore the various functionalities and interact with the interface to manage appointments and access patient information.
 
 ## Project Status
-Project is: in progress
+Project is: completed / under reiew
 
 ## Room for Improvement
 To do:
 - Install and setup Celery and Celery Beat to clean automatically  outdated appointments from the database .
 
-## Acknowledgements
-TBA
-
 ## Contact
 Created by Vladimir Dyanov - feel free to contact me!
 
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
