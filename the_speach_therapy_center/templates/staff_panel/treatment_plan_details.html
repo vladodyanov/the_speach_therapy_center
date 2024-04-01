@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% load filters %}
@@ -10,24 +9,19 @@
                 <h3>Treatment plan details:</h3>
                 <div class="card bg-light mb-3 justify-content-center align-items-center" style="max-width: 35rem;">
                     <div class="card-header"><strong>Created:</strong> {{ object.created_at }}</div>
-                        <div class="card-body">
-                            <p class="card-text"><strong>Patient:</strong> {{ object.patient.full_name}}</p>
-                            <p class="card-text"><strong>Goals:</strong> {{ object.goals}}</p>
-                            <p class="card-text"><strong>Progress notes:</strong> {{ object.progress_notes}}</p>
-                            <p class="card-text"><strong>Next steps:</strong> {{ object.next_steps}}</p>
-                            <p class="card-text"><strong>Status of the treatment plan:</strong> {{ object.is_completed}}</p>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Patient:</strong> {{ object.patient.full_name }}</p>
+                        <p class="card-text"><strong>Goals:</strong> {{ object.goals }}</p>
+                        <p class="card-text"><strong>Progress notes:</strong> {{ object.progress_notes }}</p>
+                        <p class="card-text"><strong>Next steps:</strong> {{ object.next_steps }}</p>
+                        <p class="card-text"><strong>Status of the treatment plan:</strong> {{ object.is_completed }}</p>
                         <div class="d-grid gap-2 d-md-block">
-                            <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan edit' pk=object.pk %}">Update </a>
-                            <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan delete' pk=object.pk %}">Delete </a>
+                            <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan edit' pk=object.pk %}">Update</a>
+                            <a class="btn btn-primary rounded-3 p-2" href="{% url 'treatment plan delete' pk=object.pk %}">Delete</a>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-                            
-    
 {% endblock %}
-
-                    

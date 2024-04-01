@@ -1,26 +1,17 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% load filters %}
 
 {% block main_content %}
     <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
-        <div class="section-title-registration">
-            
-            <h2>Are you sure you want to delete the treatment plan?</h2>
-          
-        <form action ="{% url 'treatment plan delete' pk=object.pk %}" method="post">
-            
-        <input class="btn btn-primary" type="submit" value="Yes">
-            {% csrf_token %}
-            
-        </form>
+        <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
+            <div class="section-title-registration">
+                <h2>Are you sure you want to delete the treatment plan?</h2>
+                <form action="{% url 'treatment plan delete' pk=object.pk %}" method="post">
+                    <input class="btn btn-primary" type="submit" value="Yes">
+                    {% csrf_token %}
+                </form>
+            </div>
         </div>
-      </div>
     </section>
-    
-    
 {% endblock %}
-
-                    

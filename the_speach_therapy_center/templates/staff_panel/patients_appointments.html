@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% load filters %}
@@ -9,13 +8,13 @@
             <div class="section-title-registration">
                 <h3>Patient appointments</h3>
                 <div class="search-container">
-                    <input class = "form-control-sm mb-2" type="text" id="searchInput" placeholder="Search...">
+                    <input class="form-control-sm mb-2" type="text" id="searchInput" placeholder="Search...">
                 </div>
                 {% if appointments.count > 0 %}
-                <table class="table">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Day</th>  
+                                <th scope="col">Day</th>
                                 <th scope="col">Time</th>
                                 <th scope="col">Patient id</th>
                                 <th scope="col">Service</th>
@@ -23,43 +22,33 @@
                         </thead>
                         <tbody id="patientTableBody">
                             {% for appointment in appointments %}
-                                {% if month == appointment.day.month and day <= appointment.day.day or month < appointment.day.month%}
+                                {% if month == appointment.day.month and day <= appointment.day.day or month < appointment.day.month %}
                                     <tr>
-                                        <td>{{ appointment.day }}</td>      
+                                        <td>{{ appointment.day }}</td>
                                         <td>{{ appointment.time }}</td>
-                                        {% if appointment.user.name%}
-                                            <td>{{ appointment.user }}</td>
-                                        {% else %}
-                                            <td>{{ appointment.user }}</td>
-                                        {% endif %}
-                                        
+                                        <td>{{ appointment.user.name if appointment.user.name else appointment.user }}</td>
                                         <td>{{ appointment.service }}</td>
                                     </tr>
                                 {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
-                    
                 {% else %}    
-                    <h5>There are no appointments !</h5>
+                    <h5>There are no appointments!</h5>
                 {% endif %}
             </div>
         </div>
     </section>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    
         $(document).ready(function() {
             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#patientTableBody tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 });
             });
         });
     </script>
-
 {% endblock %}
-
-                    
