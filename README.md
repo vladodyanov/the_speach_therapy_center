@@ -102,6 +102,8 @@ Project is: completed / under reiew
 ## Room for Improvement
 To do:
 - Install and setup Celery and Celery Beat to clean automatically  outdated appointments from the database .
+- Implementing automated appointment reminders to reduce no-show rates.
+- Enhancing the user interface for better accessibility and user experience.
 
 ## Contact
 Created by Vladimir Dyanov - feel free to contact me!
