@@ -4,44 +4,41 @@
 {% load filters %}
 
 {% block main_content %}
-    <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
-        <div class="section-title-registration">
-            {% if delta24 == True %}
-            <h4 class="text-center  mt-3">Edit Appointment:</h4>
-            <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
-                <form method="post" action="{% url 'appointment update' id %}" class="me-2 ms-2" >
-                    <div>
-                        <h4 class="">Select Service:</h4>
-                        <select class="form-select-lm" name="service">
-                            <option value="Pediatric speech service">Pediatric speech service</option>
-                            <option value="Adult speech service">Adult speech service</option>
-                            <option value="Occupational therapy service">Occupational therapy service</option>
-                        </select>
-                    </div>
-                        <div class="mt-3">
-                        <h4 class="">Select Day:</h4>
-                        <select class="form-select-lm" name="day">
-                            {% for validate_weekday in validate_weekdays %}
-                                <option value="{{validate_weekday}}">{{validate_weekday}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                        <br/>
-                        <button type="submit" class="btn btn-primary text-white">Continue</button>
-                        {% csrf_token %}
-                </form>
-                
-            </div>
-            {% else %}
-                <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black m-5 text-center fPersian">
-                    <h4 class="text-danger">Editing Appointments Its Only Available 24hrs Before Appointment!</h4>
-                    <a href="{% url 'appointments page' %}" class="btn btn-primary mt-5">Return To Appointments</a>
-                </div>
-            {% endif %}
-        </div>
+<section class="h-auto" style="background-color: #f4f5f7;">
+  <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
+    <div class="section-title-registration">
+      {% if delta24 == True %}
+      <h4 class="text-center mt-3">Edit Appointment:</h4>
+      <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black m-5">
+        <form method="post" action="{% url 'appointment update' id %}" class="me-2 ms-2">
+          <div>
+            <h4>Select Service:</h4>
+            <select class="form-select-lm" name="service">
+              <option value="Pediatric speech service">Pediatric speech service</option>
+              <option value="Adult speech service">Adult speech service</option>
+              <option value="Occupational therapy service">Occupational therapy service</option>
+            </select>
+          </div>
+          <div class="mt-3">
+            <h4>Select Day:</h4>
+            <select class="form-select-lm" name="day">
+              {% for validate_weekday in validate_weekdays %}
+              <option value="{{validate_weekday}}">{{validate_weekday}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary text-white">Continue</button>
+          {% csrf_token %}
+        </form>
       </div>
-    </section>
-   
-    
+      {% else %}
+      <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black m-5 text-center fPersian">
+        <h4 class="text-danger">Editing Appointments is Only Available 24 Hours Before Appointment!</h4>
+        <a href="{% url 'appointments page' %}" class="btn btn-primary mt-5">Return to Appointments</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 {% endblock %}

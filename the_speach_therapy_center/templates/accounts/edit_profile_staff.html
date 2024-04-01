@@ -4,19 +4,16 @@
 {% load filters %}
 
 {% block main_content %}
-    <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 45rem;">
-        <div class="section-title-registration">
-            <h2> Edit Profile</h2>
-                <form action="{% url 'edit profile staff' pk=object.pk %}" method="post" enctype="multipart/form-data" class="user-update-form">
-                    
-                    {{ form.as_p}}
-                    
-                <button class="btn btn-primary" type="submit">Save</button>
-            {% csrf_token %}
-                </form>
-        </div>
-      </div>
-   
-    
+<section class="h-auto" style="background-color: #f4f5f7;">
+  <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 45rem;">
+    <div class="section-title-registration">
+      <h2>Edit Profile</h2>
+      <form action="{% url 'edit profile staff' pk=object.pk %}" method="post" enctype="multipart/form-data" class="user-update-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</section>
 {% endblock %}

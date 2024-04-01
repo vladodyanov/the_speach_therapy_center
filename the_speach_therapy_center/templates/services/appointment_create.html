@@ -4,53 +4,43 @@
 {% load filters %}
 
 {% block main_content %}
-    <section class="h-auto" style="background-color: #f4f5f7;">
-      <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
-        <div class="section-title-registration">
-
-            {% if user.is_authenticated %}
-                <h3 class="text-center  mt-3">Make an appointment:</h3>
-                <h8>The speach therapy center is open for appointments from Monday to Friday, between 3:00 PM and 7:00 PM.</h8>
-                <h8>Please schedule your appointments within these hours.</h8>
-                    <div class="shadow p-4 mb-2 bg-body bg-body rounded text-black  m-4 ">
-                        <form method="post" action="{% url 'appointment create' %}" class="me-2 ms-2" required>
-                        <div>
-                            <h4 class="">Select Service:</h4>
-                            <select class="form-select-lm " name="service">
-                                <option value="Pediatric speech service">Pediatric speech service</option>
-                                <option value="Adult speech service">Adult speech service</option>
-                                <option value="Occupational therapy service">Occupational therapy service</option>
-                            </select>
-                        </div>
-                            <div class="mt-3">
-                                <h4 class="">Select Day:</h4>
-                                <select class="form-select-lm " name="day">
-                                    {% for validate_weekday in validate_weekdays %}
-                                    <option value="{{validate_weekday}}">{{validate_weekday}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br/>
-                            <button type="submit" class="btn btn-primary text-white">Continue</button>
-                            {% csrf_token %}
-                        </form>
-                    </div>
-
-            {% else %}
-
-                <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
-                    <h3 class="p-2  me-3">You Are Not Signed in!</h3>
-                    <p>Please Log In or Sign Up Before Scheduling an Appointment</p>
-                    <a href="{% url 'signin user' %}" class="btn btn-primary shadow text-center">Sign in</a>
-                </div>
-
-            {% endif %}
-
+<section class="h-auto" style="background-color: #f4f5f7;">
+  <div class="container card bg-light mb-3 justify-content-center align-items-center" style="max-width: 60rem;">
+    <div class="section-title-registration">
+      {% if user.is_authenticated %}
+        <h3 class="text-center mt-3">Make an appointment:</h3>
+        <p>The Speech Therapy Center is open for appointments from Monday to Friday, between 3:00 PM and 7:00 PM. Please schedule your appointments within these hours.</p>
+        <div class="shadow p-4 mb-2 bg-body bg-body rounded text-black m-4">
+          <form method="post" action="{% url 'appointment create' %}" class="me-2 ms-2" required>
+            <div>
+              <h4>Select Service:</h4>
+              <select class="form-select-lm" name="service">
+                <option value="Pediatric speech service">Pediatric speech service</option>
+                <option value="Adult speech service">Adult speech service</option>
+                <option value="Occupational therapy service">Occupational therapy service</option>
+              </select>
+            </div>
+            <div class="mt-3">
+              <h4>Select Day:</h4>
+              <select class="form-select-lm" name="day">
+                {% for validate_weekday in validate_weekdays %}
+                  <option value="{{validate_weekday}}">{{validate_weekday}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary text-white">Continue</button>
+            {% csrf_token %}
+          </form>
         </div>
-      </div>
-    </section>
-
-
+      {% else %}
+        <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black m-5">
+          <h3 class="p-2 me-3">You Are Not Signed in!</h3>
+          <p>Please Log In or Sign Up Before Scheduling an Appointment</p>
+          <a href="{% url 'signin user' %}" class="btn btn-primary shadow text-center">Sign in</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 {% endblock %}
-
-
