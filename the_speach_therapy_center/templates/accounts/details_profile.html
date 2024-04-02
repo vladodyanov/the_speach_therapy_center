@@ -13,9 +13,9 @@
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
               {% if object.profile_picture %}
-                  <img src="{{ object.profile_picture.url }}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
+                  <img src="{{ object.profile_picture.url }}" class="img-fluid my-5" style="width: 120px" alt="profile picture"/>
               {% else %}
-                  <img src="{% static 'img/default_profile_picture.png' %}" class="img-fluid my-5" style="width: 80px" alt="profile picture"/>
+                  <img src="{% static 'img/default_profile_picture.png' %}" class="img-fluid my-5" style="width: 120px" alt="profile picture"/>
               {% endif %}
               <h5>{{ object.full_name }}</h5>
               {% if object.date_of_birth %}
