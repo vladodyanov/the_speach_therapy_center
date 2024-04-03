@@ -8,7 +8,7 @@ from datetime import timedelta
 from .models import *
 from django.contrib import messages
 
-from the_speach_therapy_center.services.forms import CreateQuestionnaireForm
+from the_speach_therapy_center.services.forms import QuestionnaireCreationForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
 from the_speach_therapy_center.services.appointment_validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
     check_edit_time
@@ -64,7 +64,7 @@ def appointments_page(request):
 
 
 class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
-    form_class = CreateQuestionnaireForm
+    form_class = QuestionnaireCreationForm
     template_name = 'services/questionnaire_create.html'
     success_url = reverse_lazy('questionnaires page')
 

@@ -1,7 +1,7 @@
 from django import forms
 
 
-class ContactForm(forms.Form):
+class SpeachCenterContactForm(forms.Form):
     MAX_NAME_LENGTH = 250
 
     name = forms.CharField(

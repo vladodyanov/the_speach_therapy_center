@@ -6,7 +6,7 @@ from django.contrib.auth import mixins as auth_mixin
 
 from the_speach_therapy_center.accounts.models import Profile
 from the_speach_therapy_center.services.models import Appointment
-from the_speach_therapy_center.staff_panel.forms import CreateTreatmentPlanForm, EditTreatmentPlanForm
+from the_speach_therapy_center.staff_panel.forms import TreatmentPlanCreationForm, TreatmentPlanChangeForm
 from the_speach_therapy_center.staff_panel.models import TreatmentPlan
 
 
@@ -57,7 +57,7 @@ def patient_treatment_plans(request):
 
 class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
     model = TreatmentPlan
-    form_class = CreateTreatmentPlanForm
+    form_class = TreatmentPlanCreationForm
     template_name = 'staff_panel/treatment_plan_create.html'
     success_url = reverse_lazy('patient treatment plans')
 
@@ -73,7 +73,7 @@ class DetailsTreatmentPlanView(views.DetailView):
 
 class EditTreatmentPlanView(views.UpdateView):
     model = TreatmentPlan
-    form_class = EditTreatmentPlanForm
+    form_class = TreatmentPlanChangeForm
     template_name = 'staff_panel/treatment_plan_edit.html'
     success_url = reverse_lazy('patient treatment plans')
 

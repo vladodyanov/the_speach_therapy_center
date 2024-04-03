@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-from the_speach_therapy_center.web.forms import ContactForm
+from the_speach_therapy_center.web.forms import SpeachCenterContactForm
 
 
 def index(request):
@@ -20,7 +20,7 @@ def location(request):
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = SpeachCenterContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
@@ -34,7 +34,7 @@ def contact(request):
             )
             return render(request, 'web/contact_thank_you.html')
     else:
-        form = ContactForm()
+        form = SpeachCenterContactForm()
     return render(request, 'web/contact.html', {'form': form})
 
 

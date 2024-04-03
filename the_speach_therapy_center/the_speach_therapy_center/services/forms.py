@@ -3,7 +3,7 @@ from django import forms
 from the_speach_therapy_center.services.models import UserQuestionnaire
 
 
-class CreateQuestionnaireForm(forms.ModelForm):
+class QuestionnaireCreationForm(forms.ModelForm):
     class Meta:
         model = UserQuestionnaire
         fields = ['question_one', 'question_two', 'question_three', 'question_four',
