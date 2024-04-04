@@ -10,10 +10,14 @@ from django.contrib import messages
 
 from the_speach_therapy_center.services.forms import QuestionnaireCreationForm
 from the_speach_therapy_center.services.models import UserQuestionnaire
-from the_speach_therapy_center.services.appointment_validators import day_to_weekday, valid_weekday, is_weekday_valid, check_time, \
+from the_speach_therapy_center.services.appointment_validators import day_to_weekday, valid_weekday, is_weekday_valid, \
+    check_time, \
     check_edit_time
+from ..core.custom_decorators import patient_user_required
+from ..core.view_mixins import OwnerRequiredMixin
 
 
+@patient_user_required
 def getting_started(request):
     user = request.user
     user_email = user.email
@@ -26,6 +30,7 @@ def getting_started(request):
     return render(request, template_name='services/getting_started.html', context=context)
 
 
+@patient_user_required
 def questionnaires_page(request):
     user = request.user
     user_email = user.email
@@ -42,6 +47,7 @@ def questionnaires_page(request):
     return render(request, template_name='services/questionnaires.html', context=context)
 
 
+@patient_user_required
 def appointments_page(request):
     user = request.user
     user_email = user.email
@@ -63,7 +69,7 @@ def appointments_page(request):
     return render(request, template_name='services/appointments.html', context=context)
 
 
-class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
+class CreateQuestionnaireView(OwnerRequiredMixin, views.CreateView):
     form_class = QuestionnaireCreationForm
     template_name = 'services/questionnaire_create.html'
     success_url = reverse_lazy('questionnaires page')
@@ -73,7 +79,7 @@ class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
-class EditQuestionnaireView(auth_mixin.LoginRequiredMixin, views.UpdateView):
+class EditQuestionnaireView(OwnerRequiredMixin, views.UpdateView):
     queryset = UserQuestionnaire.objects.all()
     fields = ['question_one', 'question_two', 'question_three', 'question_four',
               'question_five', 'comments', ]
@@ -81,12 +87,13 @@ class EditQuestionnaireView(auth_mixin.LoginRequiredMixin, views.UpdateView):
     success_url = reverse_lazy('questionnaires page')
 
 
-class DeleteQuestionnaireView(auth_mixin.LoginRequiredMixin, views.DeleteView):
+class DeleteQuestionnaireView(OwnerRequiredMixin, views.DeleteView):
     queryset = UserQuestionnaire.objects.all()
     template_name = 'services/questionnaire_delete.html'
     success_url = reverse_lazy('questionnaires page')
 
 
+@patient_user_required
 def make_an_appointment(request):
     weekdays = valid_weekday(22)
     validate_weekdays = is_weekday_valid(weekdays)
@@ -108,6 +115,7 @@ def make_an_appointment(request):
     })
 
 
+@patient_user_required
 def appointment_submit(request):
     user = request.user
     times = [
@@ -153,6 +161,7 @@ def appointment_submit(request):
     })
 
 
+@patient_user_required
 def appointment_update(request, id):
     appointment = Appointment.objects.get(pk=id)
     user_date_picked = appointment.day
@@ -180,6 +189,7 @@ def appointment_update(request, id):
                   )
 
 
+@patient_user_required
 def appointment_update_submit(request, id):
     user = request.user
     times = [
@@ -232,6 +242,7 @@ def appointment_update_submit(request, id):
     })
 
 
+@patient_user_required
 def delete_appointment(request, id):
     appointment = get_object_or_404(Appointment, pk=id)
 

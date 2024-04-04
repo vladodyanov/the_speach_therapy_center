@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'the_speach_therapy_center.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "the_speach_therapy_center_db",
+        "NAME": "the_spc_db",
         "USER": "postgres-user",
         "PASSWORD": "password",
         "HOST": "127.0.0.1",

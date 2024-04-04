@@ -41,7 +41,7 @@ class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
     template_name = "accounts/details_profile.html"
 
 
-class ProfileUpdateView(views.UpdateView):
+class ProfileUpdateView(OwnerRequiredMixin, views.UpdateView):
     queryset = Profile.objects.all()
 
     template_name = "accounts/edit_profile.html"
@@ -57,7 +57,7 @@ class ProfileUpdateView(views.UpdateView):
         return form
 
 
-class ProfileStaffUpdateView(views.UpdateView):
+class ProfileStaffUpdateView(OwnerRequiredMixin, views.UpdateView):
     queryset = Profile.objects.all()
 
     template_name = "accounts/edit_profile_staff.html"
@@ -72,7 +72,7 @@ class ProfileStaffUpdateView(views.UpdateView):
         return form
 
 
-class ProfileDeleteView(views.DeleteView):
+class ProfileDeleteView(OwnerRequiredMixin, views.DeleteView):
     queryset = Profile.objects.all()
     template_name = 'accounts/delete_profile.html'
 

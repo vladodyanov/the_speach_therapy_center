@@ -9,7 +9,6 @@ UserModel = get_user_model()
 
 
 class TreatmentPlan(models.Model):
-    MAX_PATIENT_NAME_LENGTH = 25
 
     patient = models.OneToOneField(
         Profile,
