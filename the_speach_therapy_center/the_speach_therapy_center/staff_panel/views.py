@@ -2,14 +2,16 @@ from datetime import datetime
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.contrib.auth import mixins as auth_mixin
+from django.contrib.auth.decorators import user_passes_test
 
 from the_speach_therapy_center.accounts.models import Profile
+from the_speach_therapy_center.core.view_mixins import OwnerRequiredMixin, StaffPermissionMixin
 from the_speach_therapy_center.services.models import Appointment
 from the_speach_therapy_center.staff_panel.forms import TreatmentPlanCreationForm, TreatmentPlanChangeForm
 from the_speach_therapy_center.staff_panel.models import TreatmentPlan
 
 
+@user_passes_test(lambda u: u.is_staff)
 def patient_records(request):
     patients = Profile.objects.all().order_by('user__date_joined')
     context = {
@@ -17,7 +19,7 @@ def patient_records(request):
     }
     return render(request, template_name='staff_panel/patients_records.html', context=context)
 
-
+@user_passes_test(lambda u: u.is_staff)
 def patient_details(request, pk):
     patient = get_object_or_404(Profile, pk=pk)
     context = {
@@ -25,7 +27,7 @@ def patient_details(request, pk):
     }
     return render(request, 'staff_panel/patient_details.html', context=context)
 
-
+@user_passes_test(lambda u: u.is_staff)
 def patient_appointments(request):
     user = request.user
     appointments = Appointment.objects.all().order_by('day', 'time')
@@ -42,7 +44,7 @@ def patient_appointments(request):
 
     return render(request, 'staff_panel/patients_appointments.html', context=context)
 
-
+@user_passes_test(lambda u: u.is_staff)
 def patient_treatment_plans(request):
     user = request.user
     treatment_plans = TreatmentPlan.objects.all()
@@ -55,7 +57,7 @@ def patient_treatment_plans(request):
     return render(request, 'staff_panel/treatment_plans.html', context=context)
 
 
-class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
+class CreateTreatmentPlanView(StaffPermissionMixin, views.CreateView):
     model = TreatmentPlan
     form_class = TreatmentPlanCreationForm
     template_name = 'staff_panel/treatment_plan_create.html'
@@ -66,19 +68,19 @@ class CreateTreatmentPlanView(auth_mixin.LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
-class DetailsTreatmentPlanView(views.DetailView):
+class DetailsTreatmentPlanView(StaffPermissionMixin, views.DetailView):
     queryset = TreatmentPlan.objects.all()
     template_name = "staff_panel/treatment_plan_details.html"
 
 
-class EditTreatmentPlanView(views.UpdateView):
+class EditTreatmentPlanView(StaffPermissionMixin, views.UpdateView):
     model = TreatmentPlan
     form_class = TreatmentPlanChangeForm
     template_name = 'staff_panel/treatment_plan_edit.html'
     success_url = reverse_lazy('patient treatment plans')
 
 
-class DeleteTreatmentPlanView(views.DeleteView):
+class DeleteTreatmentPlanView(StaffPermissionMixin, views.DeleteView):
     queryset = TreatmentPlan.objects.all()
     template_name = 'staff_panel/treatment_plan_delete.html'
     success_url = reverse_lazy('patient treatment plans')

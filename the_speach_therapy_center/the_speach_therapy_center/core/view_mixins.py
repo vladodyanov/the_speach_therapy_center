@@ -1,5 +1,6 @@
 from django.contrib.auth import mixins as auth_mixins
 from django.core import exceptions
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 class OwnerRequiredMixin(auth_mixins.LoginRequiredMixin):
@@ -12,3 +13,9 @@ class OwnerRequiredMixin(auth_mixins.LoginRequiredMixin):
             raise exceptions.PermissionDenied
 
         return obj
+
+
+class StaffPermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        # Check if the user is authenticated and is_staff
+        return self.request.user.is_authenticated and self.request.user.is_staff

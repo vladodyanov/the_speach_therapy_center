@@ -73,7 +73,7 @@ class CreateQuestionnaireView(auth_mixin.LoginRequiredMixin, views.CreateView):
         return super().form_valid(form)
 
 
-class EditQuestionnaireView(views.UpdateView):
+class EditQuestionnaireView(auth_mixin.LoginRequiredMixin, views.UpdateView):
     queryset = UserQuestionnaire.objects.all()
     fields = ['question_one', 'question_two', 'question_three', 'question_four',
               'question_five', 'comments', ]
@@ -81,7 +81,7 @@ class EditQuestionnaireView(views.UpdateView):
     success_url = reverse_lazy('questionnaires page')
 
 
-class DeleteQuestionnaireView(views.DeleteView):
+class DeleteQuestionnaireView(auth_mixin.LoginRequiredMixin, views.DeleteView):
     queryset = UserQuestionnaire.objects.all()
     template_name = 'services/questionnaire_delete.html'
     success_url = reverse_lazy('questionnaires page')
