@@ -15,6 +15,7 @@ from the_speach_therapy_center.services.appointment_validators import day_to_wee
     check_edit_time
 from ..core.custom_decorators import patient_user_required
 from ..core.view_mixins import OwnerRequiredMixin
+from ..staff_panel.models import TreatmentPlan
 
 
 @patient_user_required
@@ -67,6 +68,22 @@ def appointments_page(request):
     }
 
     return render(request, template_name='services/appointments.html', context=context)
+
+
+@patient_user_required
+def patient_treatment_plan_review(request):
+    user = request.user
+    user_email = user.email
+    profile = Profile.objects.get(user=user)
+    full_name = profile.full_name
+    patient_treatment_plan = TreatmentPlan.objects.filter(patient__user=user)
+    context = {
+        'user_email': user_email,
+        'full_name': full_name,
+        'patient_treatment_plan': patient_treatment_plan,
+    }
+
+    return render(request, template_name='services/patient_treatment_plan.html', context=context)
 
 
 class CreateQuestionnaireView(OwnerRequiredMixin, views.CreateView):
