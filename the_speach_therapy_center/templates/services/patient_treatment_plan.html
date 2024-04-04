@@ -8,14 +8,11 @@
             <div class="section-title-registration">
             <h3>Treatment Plan</h3>
             {% if not patient_treatment_plan %}
-            <h4>Your treatment plan is not ready.</h4>
+                <h4><strong>Your treatment plan is not ready.</strong></h4>
             {% else %}
                 {% for treatment_plan in patient_treatment_plan %}
-                    {% if treatment_plan == 0 %}
-                    
-                    {% else  %}
                         {% if treatment_plan.patient.full_name  %}
-                            <h4>{{ treatment_plan.patient.full_name }} treatment plan details:</h4>
+                            <h4><strong>{{ treatment_plan.patient.full_name }}</strong> treatment plan details:</h4>
                         {% else %}
                             <h3>Patient treatment plan details:</h3>
                         {% endif %}
@@ -30,7 +27,6 @@
                             </div>
                         </div>
                     </div>
-                    {% endif %}
                 {% endfor %}
             {% endif %}
             </div>
