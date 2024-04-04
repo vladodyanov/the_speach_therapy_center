@@ -39,7 +39,7 @@ The decision to undertake the development of the Speech Therapy Center was motiv
   - contact form and location information;
   - gallery.
 - Functionality with login credentials:
-     - for patients - Patients can update the profile information. They also can create, update, delete appointments (24h before the appointemnt patient can upate or delete the appointment). After each session they can fill or update patient diary with build in questionnaire and monitor their progress. Patient appointments are visible in the User diary section via dropbowns. 
+     - for patients - Patients can update the profile information. They also can create, update, delete appointments (24h before the appointemnt patient can upate or delete the appointment). After each session they can fill or update patient diary with build in questionnaire and monitor their progress. Patient appointments and Patient Treatment Plan are visible in the User diary section via dropbowns. 
      - for staff - Terapist can create, update, delete treatment plans,  view patient appointments and  profiles in the app.
 
 ## Screenshots
@@ -58,6 +58,8 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot8.jpg" />
 
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot9.jpg" />
+
+<img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot9-1.jpg" />
 
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot10.jpg" />
 
