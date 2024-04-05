@@ -1,6 +1,6 @@
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth import mixins as auth_mixins
 from django.core import exceptions
-from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 class OwnerRequiredMixin(auth_mixins.LoginRequiredMixin):
