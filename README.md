@@ -27,6 +27,7 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 - HTML5 
 - CSS
 - Java Script
+- Bootstrap
 
 ## User Management
 - User/Therapist Registration: New users and staff can create accounts with unique emails and passwords.
