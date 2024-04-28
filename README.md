@@ -1,5 +1,5 @@
 # The speach therapy center
-The Speech Therapy Center is a comprehensive web application designed to facilitate seamless communication and management for both patients and staff in a speech therapy clinic located in the city of Blagoevgrad, Bulgaria. With a user-friendly interface, the platform offers various pages accessible both with and without login credentials, ensuring ease of access and functionality. 
+The Speech Therapy Center is a comprehensive web application designed to facilitate seamless communication and management for both patients and therapists in a speech therapy clinic located in the city of Blagoevgrad, Bulgaria. With a user-friendly interface, the platform offers various pages accessible both with and without login credentials, ensuring ease of access and functionality. 
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -16,7 +16,7 @@ The Speech Therapy Center is a comprehensive web application designed to facilit
 
 
 ## General Information
-The Speech Therapy Center aims to address the challenges faced by speech therapy clinics in managing patient appointments, records, and communication between patients and staff. Traditional methods of managing appointments and patient records using paper-based systems or disparate digital tools can be inefficient and prone to errors. This application seeks to streamline these processes and enhance communication for improved patient care and administrative efficiency. 
+The Speech Therapy Center aims to address the challenges faced by private clinics in managing patient appointments, records, and communication between patients and therapists. Traditional methods of managing appointments and patient records using paper-based systems or disparate digital tools can be inefficient and prone to errors. This application seeks to streamline these processes and enhance communication for improved patient care and administrative efficiency. 
 The purpose of the Speech Therapy Center is to provide a centralized platform for patients to schedule appointments, monitor their progress, and communicate with their therapist. For staff members, the platform offers full patient information  and communicating with patients. By digitizing and centralizing these processes, the application aims to improve overall clinic efficiency and enhance the patient experience. 
 The decision to undertake the development of the Speech Therapy Center was motivated by a recognition of the need for modernized and efficient management tools in speech therapy clinics. As the demand for speech therapy services continues to grow, there is a corresponding need for streamlined administrative processes and improved communication channels between patients and staff. By developing this application, I aim to contribute to the advancement of speech therapy services and the well-being of patients in our community.
 
@@ -27,10 +27,11 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 - HTML5 
 - CSS
 - Java Script
+- Bootstrap
 
 ## User Management
-- User/Staff Registration: New users and staff can create accounts with unique emails and passwords.
-- User/Staff Login: Registered users and staff can log in securely to access their profiles.
+- User/Therapist Registration: New users and staff can create accounts with unique emails and passwords.
+- User/Therapist Login: Registered users and staff can log in securely to access their profiles.
 
 
 ## Features
@@ -39,8 +40,8 @@ The decision to undertake the development of the Speech Therapy Center was motiv
   - contact form and location information;
   - gallery.
 - Functionality with login credentials:
-     - for patients - Patients can update the profile information. They also can create, update, delete appointments (24h before the appointemnt patient can upate or delete the appointment). After each session they can fill or update patient diary with build in questionnaire and monitor their progress. Patient appointments and Patient Treatment Plan are visible in the User diary section via dropbowns. 
-     - for staff - Terapist can create, update, delete treatment plans,  view patient appointments and  profiles in the app.
+     - for patients - Patients can update the profile information. They also can create, update, delete appointments (24h before the appointemnt patient can upate or delete the appointment). After each session they can fill or update patient diary with build in questionnaire and monitor their progress. Patient appointments and Patient Treatment Plan are visible in the User diary section via dropdowns. 
+     - for staff - Therapist can create, update, delete treatment plans,  view patient appointments and  profiles in the app.
 
 ## Screenshots
 <img align="center" width=480px  alt="home page view" src="https://github.com/vladodyanov/the_speach_therapy_center/blob/main/the_speach_therapy_center/staticfiles/img/screenshots/Screenshot1.jpg" />
