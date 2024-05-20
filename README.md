@@ -22,8 +22,9 @@ The decision to undertake the development of the Speech Therapy Center was motiv
 
 
 ## Technologies Used
-- Django - version 4.0
+- Django - version 5.0.6
 - Python - version 3.11
+- psycopg2 - version 2.9.9
 - HTML5 
 - CSS
 - Java Script
